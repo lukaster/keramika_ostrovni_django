@@ -1,0 +1,94 @@
+#navbar-template-section {
+  background-color: #537fa6;
+  border-bottom-style: solid;
+  border-bottom-color: #031740;
+  border-top-style: solid;
+  border-top-color: #031740;
+  padding-bottom: 0;
+  padding-top: 0;
+  padding-left: 5px;
+  color: #fcfaf2;
+}
+#navbar-template-section .navbar-brand {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  height: 99px !important;
+}
+#navbar-template-section #language-dropdown {
+  background-color: #fcfaf2;
+}
+@media (min-width: 768px) {
+  #navbar-template-section .navbar-brand {
+    display: block;
+    margin: 0 auto;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    height: 99px !important;
+  }
+  #navbar-template-section .navbar-brand #nav-logo-picture {
+    margin-right: 10px;
+  }
+  #navbar-template-section #outside-pages-links {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  #navbar-template-section #outside-pages-links a {
+    padding: 4px;
+  }
+}
+@media (max-width: 767px) {
+  #navbar-template-section {
+    text-align: center;
+    background-color: #537fa6;
+    background: rgba(83, 127, 166, 0.85);
+  }
+  #navbar-template-section #language-dropdown {
+    text-align: center;
+  }
+  #navbar-template-section .navbar-brand {
+    margin: 0 auto;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    height: 79px !important;
+  }
+  #navbar-template-section .navbar-brand #nav-logo-picture {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #navbar-template-section #outside-pages-links {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+  #navbar-template-section #outside-pages-links a {
+    padding-bottom: 3px;
+    padding-top: 3px;
+  }
+}
+
+.nav-link {
+  color: #fcfaf2;
+  font-size: 16pt;
+}
+
+.nav-link:hover {
+  color: #031740;
+}
+
+#language-dropdown #czech-flag {
+  width: 20px;
+  margin-top: 7px;
+  margin-left: 5px;
+}
+#language-dropdown #english-flag {
+  width: 20px;
+  margin-top: 7px;
+  margin-left: 3px;
+}
+#language-dropdown .language_dropdown_button {
+  color: #031740;
+}
+
+/*# sourceMappingURL=navbar_styling.css.map */

@@ -1,0 +1,37 @@
+{% extends "keramika_ostrovni_web/base.html" %}
+{% block title %}Keramická dílna brána jazyků{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/teachers_styling.css">{% endblock %}
+{% block js %}
+    <script>
+
+        $(function () {
+            $(window).on("load resize", function () {
+                $(".fill-screen").css("height", window.innerHeight);
+            });
+        });
+
+    </script>
+
+{% endblock %}
+{% block page_content %}
+    <div class="row">
+        <div class="fill-screen col-12">
+
+
+        </div>
+    </div>
+    <div class="row content-filler">
+        <div class="col-12">
+
+
+        </div>
+
+    </div>
+    <p>Eva Lukášová
+        Vystudovala pedagogickou fakultu UK Praha obor Rj a Vv.
+        V letech 1999-2002 navštěvovala ker. kurzy v keramickém atelieru K v Praze 8. Dnes vyučuje na ZŠ brána jazyků v
+        Praze 1 výtvarnou výchovu děti 2. stupně a jedenáctý rok vede keramické a kroužky pro děti od 4 do 15-ti a
+        keramické kroužky pro dospělé.
+    </p>
+{% endblock %}

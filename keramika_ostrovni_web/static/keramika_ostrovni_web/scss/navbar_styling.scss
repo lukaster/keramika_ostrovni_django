@@ -1,0 +1,126 @@
+$cdarkblue: #031740;
+$clightblue: #537fa6;
+$clightyellow: #fcfaf2; // #d9d9d9;
+$clightbeige: #d8d9b8;
+$cdarkbeige: #bfbd9f;
+
+
+
+#navbar-template-section {
+  background-color: $clightblue;
+  border-bottom-style: solid;
+  border-bottom-color: $cdarkblue;
+  border-top-style: solid;
+  border-top-color: $cdarkblue;
+  padding-bottom: 0;
+  padding-top: 0;
+  padding-left: 5px;
+  color: $clightyellow;
+
+  .navbar-brand {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    height: 99px !important;
+  }
+
+  #language-dropdown {
+    background-color: $clightyellow;
+  }
+
+  @media (min-width: 768px) {
+
+    .navbar-brand {
+      display: block;
+      margin: 0 auto;
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+      height: 99px !important;
+
+      #nav-logo-picture {
+        margin-right: 10px
+      }
+    }
+
+    #outside-pages-links {
+      display: grid;
+      grid-template-columns: auto auto auto;
+
+      a {
+        padding: 4px
+      }
+    }
+
+  }
+
+  @media (max-width: 767px) {
+    text-align: center;
+         background-color: $clightblue;
+    background: rgba(83, 127, 166, 0.85);
+
+    #language-dropdown {
+      text-align: center;
+    }
+
+    .navbar-brand {
+      margin: 0 auto;
+          padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    height:79px !important;
+
+
+      #nav-logo-picture {
+
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+    }
+
+    #outside-pages-links {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      padding-left: 30%;
+      padding-right: 30%;
+
+      a {
+        padding-bottom: 3px;
+        padding-top: 3px;
+      }
+    }
+  }
+}
+
+.nav-link {
+  color: $clightyellow;
+  font-size: 16pt;
+}
+
+.nav-link:hover {
+  color: $cdarkblue;
+}
+
+
+#language-dropdown {
+  #czech-flag {
+    width: 20px;
+    margin-top: 7px;
+    margin-left: 5px
+  }
+
+  #english-flag {
+    width: 20px;
+    margin-top: 7px;
+    margin-left: 3px
+  }
+
+  .language_dropdown_button {
+    color: $cdarkblue;
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,101 @@
+{% extends "keramika_ostrovni_web/base.html" %}
+{% block title %}Keramická dílna brána jazyků{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/index_styling.css">{% endblock %}
+{% block js %}
+    <script src="../../static/keramika_ostrovni_web/js/index_page_scripts.js"></script>
+    <script>
+        $(function () {
+            $(window).on("load resize", resize_index_page);
+        });
+    </script>
+{% endblock %}
+{% block page_content %}
+      <div class="row row-no-padding">
+        <div class="fill-screen picture-col order-md-2 col-md-6 "
+             style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/girl_with_cat_bowl.jpg)">
+        </div>
+        <div class="text-bubble-col order-md-1 col-md-6">
+            <div class="inside-text-container">
+                <article class="text_square" id="article-children">
+                    <h1 class="cs-lang">Dětské kroužky</h1>
+                    <h1 class="en-lang" style="display: none">Children's classes</h1>
+                    <h4 class="cs-lang">Kroužky pro děti ze ZŠ Brány jazyků</h4>
+                    <h4 class="en-lang" style="display: none">Pottery classes for kids from ZŠ Brána jazyků</h4>
+                    <button class="more-info-button" onclick="location.href='templates/children.html'">Více informací
+                    </button>
+                </article>
+            </div>
+        </div>
+    </div>
+
+     <div class="row row-no-padding">
+        <div class="fill-screen picture-col order-md-1 col-md-6 "
+             style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/adults/adults_class.jpg)">
+        </div>
+        <div class="text-bubble-col order-md-2 col-md-6">
+            <div class="inside-text-container">
+                <article class="text_square" id="article-adults">
+                    <h1 class="cs-lang">Kurzy pro dospělé</h1>
+                    <h1 class="en-lang" style="display: none">Classes for adults</h1>
+                    <h4 class="cs-lang">Podvečerní lekce keramiky</h4>
+                    <h4 class="en-lang" style="display: none">Evening pottery classes</h4>
+                    <button class="more-info-button" onclick="location.href='templates/adults.html'">Více informací
+                    </button>
+                </article>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row row-no-padding">
+        <div class="fill-screen picture-col order-md-2 col-md-6 "
+             style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/teacher.jpg)">
+        </div>
+        <div class="text-bubble-col order-md-1 col-md-6">
+            <div class="inside-text-container">
+                <article class="text_square" id="article-teachers">
+                    <h1 class="cs-lang">Učitelé</h1>
+                    <h1 class="en-lang" style="display: none">Teachers</h1>
+                    <h4 class="cs-lang">Lektoři vedoucí keramické kurzy</h4>
+                    <h4 class="en-lang" style="display: none">Instructors leading ceramic classes</h4>
+                    <button class="more-info-button" onclick="location.href='templates/teachers.html'">Více informací
+                    </button>
+                </article>
+            </div>
+        </div>
+    </div>
+    <div class="row row-no-padding">
+        <div class="fill-screen picture-col order-md-1 col-md-6 "
+             style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/christmass.jpg)">
+        </div>
+        <div class="text-bubble-col order-md-2 col-md-6">
+            <div class="inside-text-container">
+                <article class="text_square" id="article-christmas">
+                    <h1 class="cs-lang">Vánoční trhy</h1>
+                    <h1 class="en-lang" style="display: none">Christmas market</h1>
+                    <h4 class="cs-lang">Každoročně na podporu charity</h4>
+                    <h4 class="en-lang" style="display: none">Every year to donate to charity</h4>
+                    <button class="more-info-button" onclick="location.href=''">Více informací</button>
+                </article>
+            </div>
+
+        </div>
+    </div>
+    <div class="row row-no-padding">
+        <div class="fill-screen picture-col order-md-2 col-md-6 "
+             style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/before_and_after2.png)">
+        </div>
+        <div class="text-bubble-col order-md-1 col-md-6">
+            <div class="inside-text-container">
+                <article class="text_square" id="article-about-us">
+                    <h1 class="cs-lang">O naší dílně</h1>
+                    <h1 class="en-lang" style="display: none">About our workshop</h1>
+                    <h4 class="cs-lang">Jak celý projekt vznikal</h4>
+                    <h4 class="en-lang" style="display: none">How did it all come about</h4>
+                    <button class="more-info-button" onclick="location.href=''">Více informací</button>
+                </article>
+            </div>
+        </div>
+    </div>
+{% endblock %}

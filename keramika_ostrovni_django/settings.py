@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'keramika_ostrovni_web.apps.KeramikaOstrovniWebConfig'
 ]
 
 MIDDLEWARE = [

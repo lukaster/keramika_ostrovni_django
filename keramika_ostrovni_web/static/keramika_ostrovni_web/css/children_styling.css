@@ -1,0 +1,237 @@
+@charset "UTF-8";
+.back-to-the-top-button {
+  display: inline-block;
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  border-style: solid;
+  border-color: #fcfaf2;
+}
+
+.back-to-the-top-button:hover {
+  background-color: #f1f1f1;
+  font-weight: bold;
+  padding: 10px 22px;
+  border-style: solid;
+  border-color: #ddd;
+}
+
+@media (max-width: 750px) {
+  #hide-navbar-button {
+    font-size: 40px;
+    color: #fcfaf2;
+    background-color: rgba(252, 250, 242, 0.3);
+    display: inline-block;
+    position: fixed;
+    z-index: 9999;
+    padding: 2px 4px;
+    padding-bottom: 8px;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #fcfaf2;
+    top: 6px;
+    left: 7px;
+  }
+}
+@media (min-width: 751px) {
+  #hide-navbar-button {
+    display: none;
+  }
+}
+
+@media (max-width: 750px) {
+  #hide-navbar-button:hover {
+    background-color: rgba(252, 250, 242, 0.4);
+    font-weight: bold;
+    border-width: 1px;
+  }
+}
+#time_table {
+  margin-top: 18vh;
+  color: #031740;
+}
+@media (max-width: 589px) {
+  #time_table {
+    margin-top: 2vh;
+    /* Hide table headers (but not display: none;, for accessibility) */
+    /*
+    Label the data
+    */
+  }
+  #time_table .fill-screen {
+    height: 1850px;
+  }
+  #time_table h3 {
+    padding-top: 5px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  #time_table table, #time_table th, #time_table td, #time_table tr {
+    display: block;
+  }
+  #time_table table {
+    padding-bottom: 15px;
+    background-color: rgba(252, 250, 242, 0);
+  }
+  #time_table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  #time_table tr {
+    width: 252px;
+  }
+  #time_table tr:nth-of-type(odd) td {
+    background-color: rgba(252, 250, 242, 0.85);
+  }
+  #time_table tr:nth-of-type(even) td {
+    background-color: rgba(252, 250, 242, 0.6);
+  }
+  #time_table td {
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+  #time_table td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 0px;
+    left: 6px;
+    font-weight: bold;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  #time_table .en td:nth-of-type(1):before {
+    content: "Day";
+  }
+  #time_table .en td:nth-of-type(2):before {
+    content: "From - to";
+  }
+  #time_table .en td:nth-of-type(3):before {
+    content: "Students";
+  }
+  #time_table .en td:nth-of-type(4):before {
+    content: "Teacher";
+  }
+  #time_table .en td:nth-of-type(5):before {
+    content: "Free spots";
+  }
+  #time_table .cs td:nth-of-type(1):before {
+    content: "Den";
+  }
+  #time_table .cs td:nth-of-type(2):before {
+    content: "Od - do";
+  }
+  #time_table .cs td:nth-of-type(3):before {
+    content: "Žáci";
+  }
+  #time_table .cs td:nth-of-type(4):before {
+    content: "Hodinu vede";
+  }
+  #time_table .cs td:nth-of-type(5):before {
+    content: "Volná místa";
+  }
+}
+@media (min-width: 590px) {
+  #time_table {
+    background-color: rgba(252, 250, 242, 0.5);
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+  }
+  #time_table table {
+    text-align: center;
+  }
+  #time_table table th {
+    padding-bottom: 10px;
+    font-size: 20px;
+  }
+  #time_table table td {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 3px;
+    padding-top: 3px;
+  }
+  #time_table table tr:nth-of-type(odd) td {
+    background-color: rgba(252, 250, 242, 0.8);
+  }
+  #time_table table tr:nth-of-type(even) td {
+    background-color: rgba(252, 250, 242, 0.5);
+  }
+}
+@media (min-width: 992px) {
+  #time_table {
+    margin-left: 3vw;
+  }
+}
+
+.fill-screen {
+  background-size: cover;
+  background-position: center;
+}
+
+body .content-row {
+  padding-top: 20px;
+}
+body .news-row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-top-color: #ddd;
+  border-bottom-style: solid;
+  border-bottom-width: 7px;
+  border-bottom-color: #ddd;
+}
+body .news-row h2 {
+  text-align: center;
+}
+body .news-row #news_ul {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  body .news-row .inside-text-container {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+}
+body .border-row {
+  padding-top: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 7px;
+  border-bottom-color: #ddd;
+}
+@media (min-width: 768px) {
+  body .text-div {
+    position: relative !important;
+  }
+  body .text-div .inside-text-container {
+    position: absolute;
+    top: 50%;
+    height: 10em;
+    margin-top: -7em;
+    left: 50%;
+    width: 20em;
+    margin-left: -10em;
+  }
+  body .image-div-1 {
+    padding-right: 4vw;
+    padding-left: 4vw;
+  }
+  body .image-div-2 {
+    padding-right: 7vw;
+    padding-left: 1vw;
+  }
+}
+
+/*# sourceMappingURL=children_styling.css.map */

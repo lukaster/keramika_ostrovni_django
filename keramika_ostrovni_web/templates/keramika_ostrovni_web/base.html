@@ -1,0 +1,183 @@
+<!DICTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <link rel="icon" href="../../static/keramika_ostrovni_web/images/konikrightsmall.jpg">
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/navbar_styling.css">
+
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/footer_styling.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    {% block links %}{% endblock %}
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+<script src="../../static/keramika_ostrovni_web/js/load_main_menu_and_body.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        set_bg_color();
+        // add_navbar('templates/navbar.html', '');
+        //  add_footer('templates/footer.html', '../../static/keramika_ostrovni_web/images/logoinstagramkonik/logokonikoktagoncroppedleft4.png');
+        switch_page_language();
+    });
+
+
+</script>
+{% block js %}{% endblock %}
+
+<body id="body">
+<a name="page_top"></a>
+<nav id="navbar-template-section" class="navbar sticky-top navbar-expand-md">
+    <a class="navbar-brand bignavbarfinal" href="{% url 'index' %}"><img id="nav-logo-picture"
+                                                                     src="../../static/keramika_ostrovni_web/images/keramika_logo/keramikaLogo2higherYellow.png"
+                                                                     width="180"
+                                                                     class="d-inline-block align-top" alt=""/></a>
+    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul id="menu_left" class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="children_menu cs-lang nav-link" href="{% url 'children' %}">Děti<span
+                        class="sr-only">(current)</span></a>
+                <a class="children_menu en-lang nav-link" href="{% url 'children' %}" style="display: none">Children<span
+                        class="sr-only">(current)</span></a>
+
+            </li>
+            <li class="nav-item">
+                <a class="adults_menu cs-lang nav-link" href="{% url 'adults' %}">Dospělí</a>
+                <a class="adults_menu en-lang nav-link" href="{% url 'adults' %}" style="display: none">Adults</a>
+
+            </li>
+            <li class="nav-item">
+                <a class="teachers_menu cs-lang nav-link" href="{% url 'teachers' %}">Učitelé</a>
+                <a class="teachers_menu en-lang nav-link" href="{% url 'teachers' %}" style="display: none">Teachers</a>
+            </li>
+            <li id="language_drop-li" class="nav-item dropdown">
+                <a class="navbarDropdown cs-lang nav-link dropdown-toggle" href="#" role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    cs
+                </a>
+                <a class="navbarDropdown en-lang nav-link dropdown-toggle" href="#" role="button"
+                   data-toggle="dropdown" style="display: none"
+                   aria-haspopup="true" aria-expanded="false">
+                    en
+                </a>
+                <div id="language-dropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <button id="cs" onclick="set_lang_cs();switch_page_language()"
+                            class="dropdown-item language_dropdown_button" type="button">cs <img id="czech-flag"
+                                                                                                 src="../../static/keramika_ostrovni_web/images/czech_flag.PNG"
+                                                                                                 class="d-inline-block align-top"
+                                                                                                 alt=""/>
+                    </button>
+                    <button id="en" onclick="set_lang_en();switch_page_language()"
+                            class="dropdown-item language_dropdown_button" type="button">en <img
+                            id="english-flag"
+                            src="../../static/keramika_ostrovni_web/images/english_flag.PNG"
+                            class="d-inline-block align-top"
+                            alt=""/></button>
+                </div>
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <div class="grid" id="outside-pages-links">
+                    <div class="grid-item">
+                        <a id="insta_logo_link" class="nav-link" target="_blank" rel="noopener noreferrer"
+                           href="https://www.instagram.com/keramikaostrovni/?hl=en" data-placement="bottom"
+                           title="instagram">
+                            <img src="../../static/keramika_ostrovni_web/images/instagram_logo/insta_transparent.png"
+                                 onmouseover="this.src='../../static/keramika_ostrovni_web/images/instagram_logo/insta_blue.png'"
+                                 onmouseout="this.src='../../static/keramika_ostrovni_web/images/instagram_logo/insta_transparent.png'"
+                                 width="34"
+                                 class="d-inline-block" alt=""/></a>
+                    </div>
+                    <div id="fb_logo_link" class="grid-item outside-page-link">
+                        <a class="nav-link" target="_blank" rel="noopener noreferrer"
+                           href="http://www.facebook.com/pages/Keramick%C3%A1-d%C3%ADlna-Z%C5%A0-Br%C3%A1na-jazyk%C5%AF/204959079548049"
+                           data-placement="bottom" title="facebook"> <img
+                                src="../../static/keramika_ostrovni_web/images/fb_logo/fb_transparent.png"
+                                onmouseover="this.src='../../static/keramika_ostrovni_web/images/fb_logo/fb_dark_blue.png'"
+                                onmouseout="this.src='../../static/keramika_ostrovni_web/images/fb_logo/fb_transparent.png'"
+                                width="32"
+                                class="d-inline-block" alt=""/></a>
+                    </div>
+                    <div id="school_logo_link" class="grid-item outside-page-link">
+                        <a class="nav-link" target="_blank" rel="noopener noreferrer"
+                           href="http://www.branajazyku.cz/" data-placement="bottom"
+                           title="ZŠ Brána jazyků">
+                            <img src="../../static/keramika_ostrovni_web/images/school_logo/gate_logo_transparent.png"
+                                 onmouseover="this.src='../../static/keramika_ostrovni_web/images/school_logo/gate_logo_yellow.png'"
+                                 onmouseout="this.src='../../static/keramika_ostrovni_web/images/school_logo/gate_logo_transparent.png'"
+                                 width="34"
+                                 class="d-inline-block" alt=""/></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</nav>
+
+<div class="container-fluid">
+
+    {% block page_content %}
+    {% endblock %}
+
+    <div id="back_to_top_row" class="row" style="border-top-style:solid;border-top:'#031740';border-top-width: 1px">
+        <div class="co-12 mx-auto">
+            <button class="cs-lang back-to-the-top-button" onclick="location.href='#page_top'">Zpět nahoru
+            </button>
+            <button class="en-lang back-to-the-top-button" onclick="location.href='#page_top'" style="display:none;">
+                Back to the top
+            </button>
+        </div>
+    </div>
+    <div id="footer-section" class="row keramika-footer">
+        <article class=" col-lg-5 col-md-6 col-sm-12">
+            <h2 class="cs-lang"> Keramická dílna Ostrovní</h2>
+            <h2 class="en-lang" style="display: none"> Ceramic Studio Ostrovní</h2>
+            <h7 class="cs-lang">ZŠ Brána jazyků s rozšířenou výukou matematiky</h7>
+            <h7 class="en-lang" style="display: none">Elementary school Brána jazyků</h7>
+            <br><br>
+            <a class="cs-lang" href="https://mapy.cz/s/28wYh" data-placement="bottom"
+               title="Zobrazit na mapě" target="_blank">Ostrovní 16, Praha 1-Nové Město 110 00 </a>
+            <a class="en-lang" style="display: none" href="https://mapy.cz/s/28wYh" data-placement="bottom"
+               title="Display on map" target="_blank">Ostrovní 16, Praha 1-Nové Město 110 00 </a>
+            <br>
+            <h7>keramikaostrovni@gmail.com</h7>
+        </article>
+        <div id="googleMap" class="col-md-4 col-lg-5">
+            <iframe class="col-12"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.315456749096!2d14.41380931593431!3d50.080380421841305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94f1c9f7c297%3A0xcc533e2ebaf15e44!2zT3N0cm92bsOtIDE2LCAxMTAgMDAgTm92w6kgTcSbc3Rv!5e0!3m2!1scs!2scz!4v1590234577113!5m2!1scs!2scz"
+                    frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <div class="col-md-2  col-lg-2"></div>
+        <img id="footer_logo" src="../../static/keramika_ostrovni_web/images/used_pictures/logo_footer.png">
+
+    </div>
+</div>
+</body>
+</html>

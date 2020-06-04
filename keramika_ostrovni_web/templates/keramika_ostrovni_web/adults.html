@@ -1,0 +1,226 @@
+{% extends "keramika_ostrovni_web/base.html" %}
+{% block title %}Keramická dílna brána jazyků{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/adults_styling.css">{% endblock %}
+{% block js %}
+    <script src="../../static/keramika_ostrovni_web/js/adult_page_scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            add_time_table();
+        });
+        var navbarsize = 'large';
+        window.onscroll = () => {
+            //navbar_resizing_scrolling();
+
+        };
+        $(function () {
+            $(window).on("load resize", function () {
+                if (window.innerWidth > 589) {
+
+                    if (window.innerHeight < 500) {
+                        $(".fill-screen").css("height", "650px"); //mobile sideways, table does not overflow background
+                    } else {
+
+                        $(".fill-screen").css("height", window.innerHeight); // big screen, background exactly matches window
+                    }
+                } else {
+                    $(".fill-screen").css("height", "1550px");//mobile view, table longer than one screen height
+                }
+
+                if (window.innerWidth > 751) {
+                    var display_curr = $('#navbar-template-section').css("display")
+                    if (display_curr === "none") {
+                        $('#navbar-template-section').css("display", "flex");
+                        $('#hide-navbar-button').css({
+                            "border-color": "#fcfaf2",
+                            "color": "#fcfaf2",
+                            "padding-bottom": "6px",
+                            "border-width": "0px",
+                            "top": "8px"
+                        });
+                    }
+                }
+            });
+
+
+            $('#hide-navbar-button').click(function () {
+                console.log("button pushed")
+                var display_curr = $('#navbar-template-section').css("display")
+                if (display_curr === "none") {
+                    $('#navbar-template-section').css("display", "flex");
+                    $('#hide-navbar-button').css({
+                        "border-color": "#fcfaf2",
+                        "color": "#fcfaf2",
+                        "padding-bottom": "6px",
+                        "border-width": "0px",
+                        "top": "8px"
+                    });
+                } else {
+                    $('#navbar-template-section').css("display", "none");
+                    $('#hide-navbar-button').css({
+                        "border-color": "#031740",
+                        "color": "#031740",
+                        "padding-bottom": "2px",
+                        "border-width": "1px",
+                        "top": "-0.8em"
+                    });
+                }
+
+
+            });
+        })
+        ;
+    </script>
+
+{% endblock %}
+{% block page_content %}
+    <div class="row">
+        <div class="fill-screen col-12" style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/before_and_after/apo4.jpg)">
+            <div id="time_table" class="col-lg-7">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row news-row">
+        <div class="col-12 ">
+            <div class="inside-text-container">
+                <article class="text_square">
+                    <h2 class="cs-lang">Aktuality</h2>
+                    <h2 class="en-lang" style="display: none">News</h2>
+                    <div id="news_ul">
+                        <ul class="cs-lang">
+                            <li>Do napnění maximální kapacity kurzu aktuálně zbývá 5 volných míst</li>
+                            <li>Kvůli covid-19 jsou lekce na období jaro/léto 2020 pozastaveny</li>
+                            <li>Náhradní termíny budou domluveny individuálně se současnými účastníky kurzů
+                            </li>
+                            <li>Lekce keramiky na období podzim/zima 2020 začínají 17.9 2020</li>
+                        </ul>
+                        <ul class="en-lang">
+                            <li>There are currently 5 free spots in adult pottery classes</li>
+                            <li>Bacause of covid-19, lessons for the spring/summer 2020 have been temporarily canceled
+                            </li>
+                            <li>Replacement lessons time and date will be planned individually with current pupils
+                            </li>
+                            <li>Pottery classes for the autumn/winter of 2020 start on 17th September</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row content-row">
+        <div class="col-md-5 order-md-2 image-div image-div-1">
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/adults/adults_class.jpg" style="width: 100%"/>
+        </div>
+        <div class="col-md-7 order-md-1 text-div">
+            <div class="inside-text-container">
+                <article class="text_square">
+                    <h2 class="cs-lang">Průběh lekcí během semestru</h2>
+                    <h2 class="en-lang" style="display: none">Classes during semester</h2>
+                    <h4 class="cs-lang">Podvečerní lekce keramiky pro dospělé se až na vyjímky konají každých čtrnáct
+                        dní ve čtvrtek.
+                        Kurzy trvají jedno pololetí českého školního roku.
+                    </h4>
+                    <h4 class="en-lang" style="display: none">english text</h4>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row content-row">
+        <div class="col-md-5 order-md-2 image-div image-div-2">
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/adults/adults_lighthouse.jpg" style="width: 85%"/>
+        </div>
+        <div class="col-md-7 order-md-1 text-div">
+            <div class="inside-text-container">
+                <article class="text_square">
+                    <h2 class="cs-lang"></h2>
+                    <h2 class="en-lang" style="display: none"></h2>
+                    <h4 class="cs-lang">Během lekcí si účastníci kurzu mohou vysochat keramické výrobky podle vlastního
+                        vkusu, ambicí a odvahy.
+                    </h4>
+                    <h4 class="cs-lang"> Zkušená lektorka předvede základní techniky práce s hlínou a poradí s vhodným
+                        postupem pro úspěšnou realizaci návrhu.</h4>
+
+                    <h4 class="en-lang" style="display: none">english text</h4>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row content-row">
+        <div class="col-md-5 order-md-2 image-div image-div-2">
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/adults/painting_muf_on_shelf.jpg" style="width: 85%;padding-bottom: 2px"/>
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/adults/mugs_on_shelf.jpg" style="width: 85%"/>
+        </div>
+        <div class="col-md-7 order-md-1 text-div">
+            <div class="inside-text-container">
+                <article class="text_square">
+                    <h4 class="cs-lang">Máte-li zájem se kurzu účastnit, neváhejte a kontaktujte nás.
+                    </h4>
+                    <h4 class="cs-lang">V rámci našich lekcí keramiky se můžete těšit na přátelskou kreativní atmosféru,
+                        terapeutickou práci s hlínou a vlastní výrobky z keramiky, které budou těšit ještě dlouhá léta
+                        po skončení kurzu.</h4>
+
+                    <h4 class="en-lang" style="display: none">english text</h4>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row content-row">
+        <div class="col-md-5 order-md-2 image-div image-div-1">
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/before_and_after/jaro%202011%20024.jpg" style="width: 100%"/>
+        </div>
+        <div class="col-md-7 order-md-1 text-div">
+            <div class="inside-text-container">
+                <article class="text_square">
+                    <h4 class="cs-lang">V keramické dílně jsou k dispozici:</h4>
+                    <h4 class="en-lang" style="display: none">english text</h4>
+                    <ul class="cs-lang" style="font-size: 20px">
+                        <li>Typy hlíny ...</li>
+                        <li>licí hmota a formy, spousta spousta forem</li>
+                        <li>Hrnčířský kruh</li>
+                        <li>barvení - engoby, glazury, burel,... nevimcoještě se vzorníky pro snadnou orientaci</li>
+                        <li>sposta škrabátek, tiskátek, blablabla</li>
+                        <li>todo udělat koláž všech kůl věcí co tam máš do ilustračního obrázku?</li>
+                    </ul>
+                    <ul class="en-lang" style="font-size: 20px">
+                        <li>list of stuff for usage</li>
+
+                    </ul>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row border-row"></div>
+
+
+    <div class="row content-row">
+        <div class="col-md-5 order-md-2 image-div image-div-2">
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/girls_working_painting.jpg" style="width: 100%"/>
+        </div>
+        <div class="col-md-7 order-md-1 text-div">
+            <div class="inside-text-container">
+                <article class="text_square">
+                    <h2 class="cs-lang">Info nadpis</h2>
+                    <h2 class="en-lang" style="display: none">Info heading</h2>
+                    <h4 class="cs-lang">podrobnější informace</h4>
+                    <h4 class="en-lang" style="display: none">more specific info</h4>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
