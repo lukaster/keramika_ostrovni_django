@@ -18,6 +18,10 @@
   background-color: #fcfaf2;
 }
 @media (min-width: 768px) {
+  #navbar-template-section {
+    /* Change color of dropdown links on hover */
+    /* Show the dropdown menu on hover */
+  }
   #navbar-template-section .navbar-brand {
     display: block;
     margin: 0 auto;
@@ -28,12 +32,27 @@
   #navbar-template-section .navbar-brand #nav-logo-picture {
     margin-right: 10px;
   }
-  #navbar-template-section #outside-pages-links {
+  #navbar-template-section #outside-pages-links, #navbar-template-section #user-account-link {
     display: grid;
     grid-template-columns: auto auto auto;
   }
-  #navbar-template-section #outside-pages-links a {
+  #navbar-template-section #outside-pages-links a, #navbar-template-section #user-account-link a {
     padding: 4px;
+  }
+  #navbar-template-section #user-nav-item {
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: #031740;
+    margin-right: 10px;
+  }
+  #navbar-template-section #user-nav-item #user-account-link {
+    padding-right: 10px;
+  }
+  #navbar-template-section .dropdown-menu a:hover {
+    background-color: #ddd;
+  }
+  #navbar-template-section .dropdown-menu button:hover {
+    background-color: #ddd;
   }
 }
 @media (max-width: 767px) {
@@ -41,8 +60,15 @@
     text-align: center;
     background-color: #537fa6;
     background: rgba(83, 127, 166, 0.85);
+    /* Dropdown Button */
+    /* The container <div> - needed to position the dropdown content */
+    /* Dropdown Content (Hidden by Default) */
+    /* Links inside the dropdown */
+    /* Change color of dropdown links on hover */
+    /* Show the dropdown menu on hover */
+    /* Change the background color of the dropdown button when the dropdown content is shown */
   }
-  #navbar-template-section #language-dropdown {
+  #navbar-template-section #language-dropdown, #navbar-template-section .dropdown-menu {
     text-align: center;
   }
   #navbar-template-section .navbar-brand {
@@ -65,6 +91,36 @@
   #navbar-template-section #outside-pages-links a {
     padding-bottom: 3px;
     padding-top: 3px;
+  }
+  #navbar-template-section .dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  #navbar-template-section .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  #navbar-template-section .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  #navbar-template-section .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  #navbar-template-section .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  #navbar-template-section .dropdown:active .dropdown-content {
+    display: block;
   }
 }
 

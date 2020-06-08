@@ -3,33 +3,50 @@
 {% block links %}
     <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/children_styling.css">{% endblock %}
 {% block js %}
-<script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
+    <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
     <script>
 
-    document.addEventListener('DOMContentLoaded', () => {
-        set_bg_color();
-        add_time_table();
-    });
-    var navbarsize = 'large';
-    window.onscroll = () => {
-        //navbar_resizing_scrolling();
+        document.addEventListener('DOMContentLoaded', () => {
+            set_bg_color();
+            //add_time_table();
+        });
+        var navbarsize = 'large';
+        window.onscroll = () => {
+            //navbar_resizing_scrolling();
 
-    };
-    $(function () {
-        $(window).on("load resize", function () {
-            if (window.innerWidth > 589) {
+        };
+        $(function () {
+            $(window).on("load resize", function () {
+                if (window.innerWidth > 589) {
 
-                if (window.innerHeight < 500) {
-                    $(".fill-screen").css("height", "500px"); //mobile sideways, table does not overflow background
+                    if (window.innerHeight < 500) {
+                        $(".fill-screen").css("height", "500px"); //mobile sideways, table does not overflow background
+                    } else {
+
+                        $(".fill-screen").css("height", window.innerHeight); // big screen, background exactly matches window
+                    }
                 } else {
-
-                    $(".fill-screen").css("height", window.innerHeight); // big screen, background exactly matches window
+                    $(".fill-screen").css("height", "1150px");//mobile view, table longer than one screen height
                 }
-            } else {
-                $(".fill-screen").css("height", "1150px");//mobile view, table longer than one screen height
-            }
 
-            if (window.innerWidth > 751) {
+                if (window.innerWidth > 751) {
+                    var display_curr = $('#navbar-template-section').css("display")
+                    if (display_curr === "none") {
+                        $('#navbar-template-section').css("display", "flex");
+                        $('#hide-navbar-button').css({
+                            "border-color": "#fcfaf2",
+                            "color": "#fcfaf2",
+                            "padding-bottom": "6px",
+                            "border-width": "0px",
+                            "top": "8px"
+                        });
+                    }
+                }
+            });
+
+
+            $('#hide-navbar-button').click(function () {
+                console.log("button pushed")
                 var display_curr = $('#navbar-template-section').css("display")
                 if (display_curr === "none") {
                     $('#navbar-template-section').css("display", "flex");
@@ -40,43 +57,27 @@
                         "border-width": "0px",
                         "top": "8px"
                     });
+                } else {
+                    $('#navbar-template-section').css("display", "none");
+                    $('#hide-navbar-button').css({
+                        "border-color": "#031740",
+                        "color": "#031740",
+                        "padding-bottom": "2px",
+                        "border-width": "1px",
+                        "top": "-0.8em"
+                    });
                 }
-            }
-        });
 
 
-        $('#hide-navbar-button').click(function () {
-            console.log("button pushed")
-            var display_curr = $('#navbar-template-section').css("display")
-            if (display_curr === "none") {
-                $('#navbar-template-section').css("display", "flex");
-                $('#hide-navbar-button').css({
-                    "border-color": "#fcfaf2",
-                    "color": "#fcfaf2",
-                    "padding-bottom": "6px",
-                    "border-width": "0px",
-                    "top": "8px"
-                });
-            } else {
-                $('#navbar-template-section').css("display", "none");
-                $('#hide-navbar-button').css({
-                    "border-color": "#031740",
-                    "color": "#031740",
-                    "padding-bottom": "2px",
-                    "border-width": "1px",
-                    "top": "-0.8em"
-                });
-            }
-
-
-        });
-    })
-    ;
-</script>
+            });
+        })
+        ;
+    </script>
 {% endblock %}
 {% block page_content %}
- <div class="row">
-        <div class="fill-screen col-12" style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/before_and_after/apo5cropped.jpg)">
+    <div class="row">
+        <div class="fill-screen col-12"
+             style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/before_and_after/apo5cropped.jpg)">
             <div id="time_table" class="col-lg-8">
 
             </div>
@@ -90,29 +91,26 @@
                     <h2 class="en-lang" style="display: none">News</h2>
                     <div id="news_ul">
                         <ul class="cs-lang">
-                            <li>Kvůli covid-19 jsou kroužky 2019/2020 zrušeny</li>
-                            <li>Peníze z propadlých kroužků mohou být vráceny v poměrné sumě, nebo použity k proplacení
-                                nového kroužku na podzim roku 2020/2021
-                            </li>
+                            {% for news in aktuality %}
+                                <li>{{ news.text_zpravy_cs }}</li>
+                            {% endfor %}
                         </ul>
                         <ul class="en-lang">
-                            <li>Bacause of covid-19, lessons for 2019/2020 are canceled</li>
-                            <li>Money paid for the canceled lessons can be returned for the amount of lessons that did
-                                not take place, or it can be used to pay for the lessons in fall 2020
-                            </li>
+                            {% for news in aktuality %}
+                                <li>{{ news.datum }} {{ news.text_zpravy_en }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </article>
             </div>
-
         </div>
-
     </div>
 
 
     <div class="row content-row">
         <div class="col-md-5 order-md-2 image-div image-div-1">
-            <img src="../../static/keramika_ostrovni_web/images/used_pictures/kids/two_girls_building_flower_pots_cropped.jpg" style="width: 100%"/>
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/kids/two_girls_building_flower_pots_cropped.jpg"
+                 style="width: 100%"/>
         </div>
         <div class="col-md-7 order-md-1 text-div">
             <div class="inside-text-container">
@@ -130,7 +128,8 @@
     </div>
     <div class="row content-row">
         <div class="col-md-5 order-md-2 image-div image-div-2">
-            <img src="../../static/keramika_ostrovni_web/images/used_pictures/kids/kids_painting.JPG" style="width: 90%"/>
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/kids/kids_painting.JPG"
+                 style="width: 90%"/>
         </div>
         <div class="col-md-7 order-md-1 text-div">
             <div class="inside-text-container">
@@ -148,7 +147,8 @@
     </div>
     <div class="row content-row">
         <div class="col-md-5 order-md-2 image-div image-div-1">
-            <img src="../../static/keramika_ostrovni_web/images/used_pictures/kids/full_shelfs_painted.jpg" style="width: 100%"/>
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/kids/full_shelfs_painted.jpg"
+                 style="width: 100%"/>
         </div>
         <div class="col-md-7 order-md-1 text-div">
             <div class="inside-text-container">
@@ -199,7 +199,10 @@
         <div class="col-md-7 order-md-1 text-div">
             <div class="inside-text-container">
                 <article class="text_square">
-                    <h4 class="cs-lang" style="font-size: 20px">Děti jsou vyzvedánány z družiny a dovedeny ze školy do dílny před začátkem hodiny a zpět po jejím ukončením. Starší děti mohou po domluvě chodit na kroužek samostatně a samostatně odcházet. Popřípadě si může rodič domluvit osobní vyzvednutí dítěte v keramické dílně</h4>
+                    <h4 class="cs-lang" style="font-size: 20px">Děti jsou vyzvedánány z družiny a dovedeny ze školy do
+                        dílny před začátkem hodiny a zpět po jejím ukončením. Starší děti mohou po domluvě chodit na
+                        kroužek samostatně a samostatně odcházet. Popřípadě si může rodič domluvit osobní vyzvednutí
+                        dítěte v keramické dílně</h4>
                     <h4 class="en-lang" style="display: none;font-size: 20px">more specific info</h4>
                 </article>
             </div>
@@ -210,7 +213,8 @@
     <div class="row border-row"></div>
     <div class="row content-row">
         <div class="col-md-5 order-md-2 image-div image-div-2">
-            <img src="../../static/keramika_ostrovni_web/images/used_pictures/girls_working_painting.jpg" style="width: 100%"/>
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/girls_working_painting.jpg"
+                 style="width: 100%"/>
         </div>
         <div class="col-md-7 order-md-1 text-div">
             <div class="inside-text-container">

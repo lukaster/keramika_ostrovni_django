@@ -1,31 +1,76 @@
+from django.shortcuts import render, Http404, HttpResponseRedirect, HttpResponse, redirect
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout
+from .models import Aktuality
 
-from django.shortcuts import render, Http404, HttpResponseRedirect,HttpResponse
+
 # Create your views here.
 def index(request):
-    #return HttpResponse("hello there")
-    context={
+    # return HttpResponse("hello there")
+    context = {
 
     }
-    return render(request,"keramika_ostrovni_web/index.html",context)
+    return render(request, "keramika_ostrovni_web/index.html", context)
+
 
 def children(request):
-    #return HttpResponse("hello there")
-    context={
-
+    context = {
+        "aktuality": Aktuality.objects.filter(typ_aktualit='children').all()
     }
-    return render(request,"keramika_ostrovni_web/children.html",context)
+    return render(request, "keramika_ostrovni_web/children.html", context)
+
+
+def children_sign_up(request):
+    context = {}
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)  # data validation
+        if form.is_valid():
+            user = form.save()  # saves data to db
+            login(request,user)
+            return redirect('children')
+        else:
+            return render(request, "keramika_ostrovni_web/children_sign_up.html", {'form': form})
+
+    if request.method == 'GET':
+        form = UserCreationForm()  # create blank instance of the form and send it to the user
+        context = {'form': form }
+    return render(request, "keramika_ostrovni_web/children_sign_up.html", context)
+
+
+def children_login(request):
+    context = {}
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)  # data validation
+        if form.is_valid():
+            user = form.get_user()
+            login(request,user)
+            return redirect('children')
+        else:
+            return render(request, "keramika_ostrovni_web/children_login.html", {'form': form})
+
+    if request.method == 'GET':
+        form = AuthenticationForm()  # create blank instance of the form and send it to the user
+        context = {'form': form }
+    return render(request, "keramika_ostrovni_web/children_login.html", context)
+
+
+def children_logout(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('children')
+
+
+
 
 def adults(request):
-    #return HttpResponse("hello there")
-    context={
-
+    context = {
+        "aktuality": Aktuality.objects.filter(typ_aktualit='adults').all()
     }
-    return render(request,"keramika_ostrovni_web/adults.html",context)
+    return render(request, "keramika_ostrovni_web/adults.html", context)
 
 
 def teachers(request):
-    #return HttpResponse("hello there")
-    context={
+    context = {
 
     }
-    return render(request,"keramika_ostrovni_web/teachers.html",context)
+    return render(request, "keramika_ostrovni_web/teachers.html", context)

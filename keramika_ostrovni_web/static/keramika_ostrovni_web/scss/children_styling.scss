@@ -7,7 +7,7 @@ $clightgrey: #f1f1f1;
 $cdarkergrey: #ddd;
 
 
-.back-to-the-top-button {
+.back-to-the-top-button, .sign-up-button {
   display: inline-block;
   background-color: #ddd;
   border: none;
@@ -23,7 +23,7 @@ $cdarkergrey: #ddd;
   border-color: $clightyellow;
 }
 
-.back-to-the-top-button:hover {
+.back-to-the-top-button:hover, .sign-up-button:hover {
   background-color: #f1f1f1;
   font-weight: bold;
   padding: 10px 22px;

@@ -1,0 +1,36 @@
+{% extends "keramika_ostrovni_web/base.html" %}
+{% block title %}Keramická dílna brána jazyků{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/children_styling.css">
+{% endblock %}
+{% block js %}
+    <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            set_bg_color();
+
+        });
+    </script>
+{% endblock %}
+{% block page_content %}
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <form class="site-form" action="{% url 'children_login' %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+    <div class="row" style="border-top-style:solid;border-top-width: 1px">
+        <div class="co-12 mx-auto">
+            <button class="cs-lang sign-up-button" onclick="location.href='{% url "children_sign_up" %}'">Vytvořit nový účet
+            </button>
+            <button class="en-lang sign-up-button" onclick="location.href='{% url "children_sign_up" %}'" style="display:none;">
+                Create new account
+            </button>
+        </div>
+    </div>
+
+{% endblock %}

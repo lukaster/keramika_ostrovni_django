@@ -22,7 +22,7 @@ function switch_page_language() {
 
     var language = window.localStorage.getItem('language');
     console.log(language);
-        add_time_table();
+        //add_time_table();
     if (language === 'en') {
         $('.cs-lang').each(function (index, item) {
             var $text = $(item);
