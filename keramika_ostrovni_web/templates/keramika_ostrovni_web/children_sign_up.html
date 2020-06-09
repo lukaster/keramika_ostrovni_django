@@ -1,7 +1,9 @@
 {% extends "keramika_ostrovni_web/base.html" %}
 {% block title %}Keramická dílna brána jazyků{% endblock %}
 {% block links %}
-    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/children_styling.css">{% endblock %}
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/children_styling.css">
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/account_login_styling.css">
+{% endblock %}
 {% block js %}
     <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
     <script>
@@ -14,11 +16,65 @@
 {% endblock %}
 {% block page_content %}
     <div class="row ">
-        <div class="col-12 ">
-            <form class="site-form" action="{% url 'children_sign_up' %}" method="post">
+        <div class="co-12 mx-auto">
+            <form class="site-form" action="{% url 'children_sign_up' %}" metdod="post" style="margin: 5vh 0% 5vh 0%;">
                 {% csrf_token %}
-                {{ form }}
-                <input type="submit" value="Sign Up">
+                <div class="row">
+                    <div class="co-12 mx-auto">
+                        <table id="log-in-table" class="table">
+                            <tr>
+                                <td><label for="id_username">E-mail:</label></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="username" maxlengtd="150" autocapitalize="none"
+                                           autocomplete="username"
+                                           autofocus required id="id_username"><br>
+                                    <span class="en-lang helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+                                    <span class="cs-lang helptext">Povinné pole. 150 nebo méně znaků. Povolena písmena, číslice a znaky: @/./+/-/_ </span><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="en-lang" for="id_password1">Password:</label>
+                                    <label class="cs-lang" for="id_password1">Heslo:</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="password" name="password1" autocomplete="new-password" required
+                                           id="id_password1"><br><span class="helptext">
+                                    <ul class="en-lang"><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></span>
+                                    <ul class="cs-lang">
+                                        <li>Heslo musí mít alespoň 8 znaků</li>
+                                        <li>Heslo nesmí být často používané (př: heslo123).</li>
+                                        <li>Heslo nemůže být jen z číslic.</li>
+                                    </ul>
+                                    </span>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="cs-lang" for="id_password2">Zopakujte heslo:</label>
+                                    <label class="en-lang" for="id_password2">Password confirmation:</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="password" name="password2" autocomplete="new-password" required
+                                           id="id_password2"><br>
+                                    <span class="en-lang helptext">Enter tde same password as before, for verification.</span>
+                                <span class="cs-lang helptext">Zadejte heslo podruhé pro kontrolu.</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="co-12 mx-auto">
+
+                        <input class="en-lang sign-up-button"  formmethod="post"  type="submit" value="Sign Up">
+                        <input class="cs-lang sign-up-button"  formmethod="post"  type="submit" value="Vytvořit nový účet">
+                    </div>
+                </div>
             </form>
         </div>
     </div>
