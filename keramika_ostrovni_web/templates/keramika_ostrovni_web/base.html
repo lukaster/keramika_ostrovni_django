@@ -42,7 +42,11 @@
 
     });
     $(function () {
-          menu_hover_dropdowns();
+        var userName='{{ username }}';
+        console.log(userName);
+            menu_hover_dropdowns();
+            manage_user_dropdown(userName);
+
         }
     );
 
@@ -65,12 +69,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul id="menu_left" class="navbar-nav mr-auto">
             <li id="children-menu" class="nav-item dropdown">
-                <a class="navbarDropdown cs-lang nav-link dropdown-toggle" href="#" role="button"
+                <a id="children_drop_link_cs" class="navbarDropdown cs-lang nav-link" href="#"
+                   role="button"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     Děti
                 </a>
-                <a class="navbarDropdown en-lang nav-link dropdown-toggle" href="#" role="button"
+                <a id="children_drop_link_en" class="navbarDropdown en-lang nav-link" href="#"
+                   role="button"
                    data-toggle="dropdown" style="display: none"
                    aria-haspopup="true" aria-expanded="false">
                     Children
@@ -102,24 +108,26 @@
                 <a class="teachers_menu en-lang nav-link" href="{% url 'teachers' %}" style="display: none">Teachers</a>
             </li>
             <li id="language_drop-li" class="nav-item dropdown">
-                <a class="navbarDropdown cs-lang nav-link dropdown-toggle" href="#" role="button"
+                <a id="language_drop_link_cs" class="navbarDropdown cs-lang nav-link" href="#"
+                   role="button"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     cs
                 </a>
-                <a class="navbarDropdown en-lang nav-link dropdown-toggle" href="#" role="button"
+                <a id="language_drop_link_en" class="navbarDropdown en-lang nav-link" href="#"
+                   role="button"
                    data-toggle="dropdown" style="display: none"
                    aria-haspopup="true" aria-expanded="false">
                     en
                 </a>
                 <div id="language-dropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <button id="cs" onclick="set_lang_cs();switch_page_language()"
+                    <button id="cs" onclick="set_lang_cs();switch_page_language();manage_user_dropdown('{{ username }}');"
                             class="dropdown-item language_dropdown_button" type="button">cs <img id="czech-flag"
                                                                                                  src="../../static/keramika_ostrovni_web/images/czech_flag.PNG"
                                                                                                  class="d-inline-block align-top"
                                                                                                  alt=""/>
                     </button>
-                    <button id="en" onclick="set_lang_en();switch_page_language()"
+                    <button id="en" onclick="set_lang_en();switch_page_language();manage_user_dropdown('{{ username }}');"
                             class="dropdown-item language_dropdown_button" type="button">en <img
                             id="english-flag"
                             src="../../static/keramika_ostrovni_web/images/english_flag.PNG"
@@ -146,15 +154,65 @@
 
                         <div id="user-dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a
-                                    class="cs-lang dropdown-item" href="{% url 'children' %}">
-                                link cs 1
+                                    class="dropdown-item user-dropdown-item" href="#"
+                                    style="background-color: #537fa6;border-bottom-style: solid; border-bottom-width: 2px;border-bottom-color:#031740;color: #fcfaf2;font-weight:bold ">
+                                {{ username }}
                             </a>
                             <a
-                                    class="en-lang dropdown-item" href="{% url 'children' %}">
-                                link en
-                                1
+                                    class="cs-lang dropdown-item no-user-dropdown-item"
+                                    href="{% url 'children_login' %}">
+                                Přihlásit se
                             </a>
-
+                            <a
+                                    class="cs-lang dropdown-item user-dropdown-item"
+                                    href="{% url 'children_sign_up' %}">
+                                Spravovat účet
+                            </a>
+                            <a
+                                    class="cs-lang dropdown-item user-dropdown-item"
+                                    href="{% url 'children_sign_up' %}">
+                                Zápis kroužků
+                            </a>
+                            <a
+                                    class="cs-lang dropdown-item no-user-dropdown-item"
+                                    href="{% url 'children_sign_up' %}">
+                                Založit nový účet
+                            </a>
+                            <a id="logout-link"
+                               class="cs-lang dropdown-item user-dropdown-item" href="#">
+                                <form class="logout-link" action="{% url 'children_logout' %}" method="post"
+                                      style="border-style: none; padding: 0px!important;margin: 0px;background:#fcfaf2 ">
+                                    {% csrf_token %}
+                                    <button id="logout-button" type="submit"
+                                            style="border-style: none; padding: 0px!important;margin: 0px;background:#fcfaf2;cursor: pointer">
+                                        Odhlásit se
+                                    </button>
+                                </form>
+                            </a>
+                            <a
+                                    class="en-lang dropdown-item no-user-dropdown-item"
+                                    href="{% url 'children_login' %}">
+                                Sign in
+                            </a>
+                            <a
+                                    class="en-lang dropdown-item user-dropdown-item"
+                                    href="{% url 'children_sign_up' %}">
+                                Change account info
+                            </a>
+                            <a
+                                    class="en-lang dropdown-item user-dropdown-item"
+                                    href="{% url 'children_sign_up' %}">
+                                Sign up for courses
+                            </a>
+                            <a
+                                    class="en-lang dropdown-item no-user-dropdown-item"
+                                    href="{% url 'children_sign_up' %}">
+                                Create new account
+                            </a>
+                            <a
+                                    class="en-lang dropdown-item user-dropdown-item" href="{% url 'children_logout' %}">
+                                Logout
+                            </a>
                         </div>
                     </div>
                 </div>

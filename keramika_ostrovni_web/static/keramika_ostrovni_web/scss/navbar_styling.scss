@@ -22,7 +22,7 @@ $cdarkbeige: #bfbd9f;
     height: 99px !important;
   }
 
-  #language-dropdown {
+  #language-dropdown, .dropdown-menu {
     background-color: $clightyellow;
   }
 
@@ -65,15 +65,25 @@ $cdarkbeige: #bfbd9f;
       background-color: #ddd;
 
     }
-    .dropdown-menu button:hover {
+        .dropdown-menu button:hover {
       background-color: #ddd;
+
     }
 
-    /* Show the dropdown menu on hover */
-   // .dropdown:hover .dropdown-menu {
-  //    display: block;
+    //whole block just so button in submit form looks like links above
+    #logout-link:hover {
+      .logout-link, #logout-button {
+        background-color: #ddd !important;
+      }
+    }
+    .logout-link:hover, #logout-button:hover {
+      background-color: #ddd !important;
 
-  //  }
+      #logout-button {
+        background-color: #ddd !important;
+      }
+    }
+
 
   }
 
@@ -84,7 +94,7 @@ $cdarkbeige: #bfbd9f;
     background-color: $clightblue;
     background: rgba(83, 127, 166, 0.85);
 
-    #language-dropdown,.dropdown-menu {
+    #language-dropdown, .dropdown-menu {
       text-align: center;
     }
 
@@ -152,6 +162,9 @@ $cdarkbeige: #bfbd9f;
     /* Change color of dropdown links on hover */
     .dropdown-content a:hover {
       background-color: #ddd;
+    }
+    .dropdown-content button:hover {
+      background-color: #ddd !important;
     }
 
     /* Show the dropdown menu on hover */

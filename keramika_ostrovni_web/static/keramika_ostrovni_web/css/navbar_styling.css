@@ -14,13 +14,12 @@
   padding-bottom: 15px !important;
   height: 99px !important;
 }
-#navbar-template-section #language-dropdown {
+#navbar-template-section #language-dropdown, #navbar-template-section .dropdown-menu {
   background-color: #fcfaf2;
 }
 @media (min-width: 768px) {
   #navbar-template-section {
     /* Change color of dropdown links on hover */
-    /* Show the dropdown menu on hover */
   }
   #navbar-template-section .navbar-brand {
     display: block;
@@ -53,6 +52,15 @@
   }
   #navbar-template-section .dropdown-menu button:hover {
     background-color: #ddd;
+  }
+  #navbar-template-section #logout-link:hover .logout-link, #navbar-template-section #logout-link:hover #logout-button {
+    background-color: #ddd !important;
+  }
+  #navbar-template-section .logout-link:hover, #navbar-template-section #logout-button:hover {
+    background-color: #ddd !important;
+  }
+  #navbar-template-section .logout-link:hover #logout-button, #navbar-template-section #logout-button:hover #logout-button {
+    background-color: #ddd !important;
   }
 }
 @media (max-width: 767px) {
@@ -118,6 +126,9 @@
   }
   #navbar-template-section .dropdown-content a:hover {
     background-color: #ddd;
+  }
+  #navbar-template-section .dropdown-content button:hover {
+    background-color: #ddd !important;
   }
   #navbar-template-section .dropdown:active .dropdown-content {
     display: block;
