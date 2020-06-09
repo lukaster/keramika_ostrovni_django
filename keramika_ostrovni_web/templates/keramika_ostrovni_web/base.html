@@ -155,7 +155,7 @@
                         <div id="user-dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a
                                     class="dropdown-item user-dropdown-item" href="#"
-                                    style="background-color: #537fa6;border-bottom-style: solid; border-bottom-width: 2px;border-bottom-color:#031740;color: #fcfaf2;font-weight:bold ">
+                                    style="background-color: #537fa6;border-bottom-style: solid; border-bottom-width: 2px;border-bottom-color:#031740;color: #fcfaf2">
                                 {{ username }}
                             </a>
                             <a
@@ -178,17 +178,7 @@
                                     href="{% url 'children_sign_up' %}">
                                 Založit nový účet
                             </a>
-                            <a id="logout-link"
-                               class="cs-lang dropdown-item user-dropdown-item" href="#">
-                                <form class="logout-link" action="{% url 'children_logout' %}" method="post"
-                                      style="border-style: none; padding: 0px!important;margin: 0px;background:#fcfaf2 ">
-                                    {% csrf_token %}
-                                    <button id="logout-button" type="submit"
-                                            style="border-style: none; padding: 0px!important;margin: 0px;background:#fcfaf2;cursor: pointer">
-                                        Odhlásit se
-                                    </button>
-                                </form>
-                            </a>
+
                             <a
                                     class="en-lang dropdown-item no-user-dropdown-item"
                                     href="{% url 'children_login' %}">
@@ -209,9 +199,16 @@
                                     href="{% url 'children_sign_up' %}">
                                 Create new account
                             </a>
-                            <a
-                                    class="en-lang dropdown-item user-dropdown-item" href="{% url 'children_logout' %}">
-                                Logout
+                            <a id="logout-link"
+                               class="dropdown-item user-dropdown-item" href="#">
+                                <form class="logout-link" action="{% url 'children_logout' %}" method="post"
+                                      style="border-style: none; padding: 0px!important;margin: 0px;background:#fcfaf2 ">
+                                    {% csrf_token %}
+                                    <button id="logout-button" type="submit"
+                                            style="border-style: none; padding: 0px!important;margin: 0px;background:#fcfaf2;cursor: pointer">
+                                       <p class="cs-lang">Odhlásit se</p><p class="en-lang">Logout</p>
+                                    </button>
+                                </form>
                             </a>
                         </div>
                     </div>

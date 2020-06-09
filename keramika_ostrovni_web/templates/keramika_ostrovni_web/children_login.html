@@ -2,9 +2,11 @@
 {% block title %}Keramická dílna brána jazyků{% endblock %}
 {% block links %}
     <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/children_styling.css">
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/account_login_styling.css">
 {% endblock %}
 {% block js %}
     <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
+
     <script>
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -15,19 +17,60 @@
 {% endblock %}
 {% block page_content %}
     <div class="row">
-        <div class="col-12 mx-auto">
+        <div class="co-12 mx-auto">
             <form class="site-form" action="{% url 'children_login' %}" method="post">
                 {% csrf_token %}
-                {{ form }}
-                <input type="submit" value="Login">
+                <div class="row">
+                    <div class="co-12 mx-auto">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <label for="id_username">E-mail</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input id="id_username" name="username"
+                                           type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="en-lang" for="id_password">Password</label>
+                                    <label class="cs-lang" for="id_password">Heslo</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input id="id_password" name="password"
+                                           type="password" class="form-control"></td>
+                            </tr>
+                        </table>
+                        {% if form.errors %}
+                            <p class=" label label-danger cs-lang">
+                                Váš e-mail a heslo neodpovídají žádnému existujícímu účtu.
+                            </p>
+                            <p class=" label label-danger en-lang">
+                                Your e-mail and password didn't match.
+                                Please try again.
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="co-12 mx-auto">
+                        <input class="en-lang login-button" type="submit" value="Login">
+                        <input class="cs-lang login-button" type="submit" value="Přihlásit se">
+                    </div>
+                </div>
+
             </form>
         </div>
     </div>
     <div class="row" style="border-top-style:solid;border-top-width: 1px">
         <div class="co-12 mx-auto">
-            <button class="cs-lang sign-up-button" onclick="location.href='{% url "children_sign_up" %}'">Vytvořit nový účet
+            <button class="cs-lang login-button" onclick="location.href='{% url "children_sign_up" %}'">Vytvořit nový
+                účet
             </button>
-            <button class="en-lang sign-up-button" onclick="location.href='{% url "children_sign_up" %}'" style="display:none;">
+            <button class="en-lang login-button" onclick="location.href='{% url "children_sign_up" %}'"
+                    style="display:none;">
                 Create new account
             </button>
         </div>

@@ -1,0 +1,54 @@
+form {
+  position: relative;
+  margin: 13vh 0% 13vh 0%;
+  padding: 18px 40px 30px 40px;
+  background-color: #537fa6;
+  color: #fcfaf2;
+  font-size: 18px;
+  border-radius: 16px;
+  border: 2px solid #031740;
+  width: 300px;
+}
+form table {
+  color: #fcfaf2;
+  font-size: 18px;
+}
+form table label {
+  margin-bottom: 0px;
+  width: 240px;
+}
+form table td {
+  border-top-style: none !important;
+  padding: 0px !important;
+}
+form table input {
+  margin-bottom: 15px;
+}
+
+.login-button {
+  display: inline-block;
+  background-color: #ddd;
+  border: none;
+  color: #031740;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  border-style: solid;
+  border-color: #fcfaf2;
+}
+
+.login-button:hover {
+  background-color: #f1f1f1;
+  border-style: solid;
+  border-color: #ddd;
+}
+
+#back_to_top_row {
+  display: none;
+}
+
+/*# sourceMappingURL=account_login_styling.css.map */
