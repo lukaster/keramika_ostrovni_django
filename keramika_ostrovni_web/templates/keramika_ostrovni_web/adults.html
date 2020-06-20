@@ -78,7 +78,49 @@
         <div class="fill-screen col-12"
              style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/before_and_after/apo4.jpg)">
             <div id="time_table" class="col-lg-7">
+                <div class="cs-lang">
+                    <table class="cs" style="width:100%">
+                        <tr><h3> Rozpis lekcí keramiky jaro/léto 2020</h3></tr>
+                        <thead>
+                        <tr>
+                            <th>Datum konání</th>
+                            <th>Od - do</th>
+                            <th>Hodinu vede</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for course in courses %}
+                            <tr>
+                                <td>{{ course.den_cs }}, {{ course.datum.day }}. {{ course.datum.month }} </td>
+                                <td>{{ course.od }} - {{ course.do }}</td>
+                                <td>{{ course.ucitel }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="en-lang">
+                    <table class="en" style="width:100%">
+                        <tr><h3> Pottery classes spring/summer 2020</h3></tr>
+                        <thead>
+                        <tr>
+                            <th>Lecture date</th>
+                            <th>From - to</th>
+                            <th>Teacher</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for course in courses %}
+                            <tr>
 
+                                <td>{{ course.den_en }}, {{ course.datum.day }}. {{ course.datum.month }} </td>
+                                <td>{{ course.od }} - {{ course.do }}</td>
+                                <td>{{ course.ucitel }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

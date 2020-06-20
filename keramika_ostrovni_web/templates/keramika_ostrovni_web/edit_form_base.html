@@ -1,0 +1,25 @@
+{% extends "keramika_ostrovni_web/base.html" %}
+{% block title %}Keramická dílna brána jazyků{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/children_styling.css">
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/edit_form.css">
+{% endblock %}
+{% block js %}
+    <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            set_bg_color();
+            //todo make screen fill vertical window
+
+        });
+    </script>
+{% endblock %}
+{% block page_content %}
+    <div class="row">
+        <div class="co-12 mx-auto">
+            {% block form %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,70 @@
+{% extends "keramika_ostrovni_web/edit_form_base.html" %}
+{% block form %}
+      <form class="site-form" action="{% url 'adult_edit' adult_id=adult.id %}" metdod="post"
+          style="margin: 5vh 0% 5vh 0%;">
+        {% csrf_token %}
+
+        <div id="info-table" class="grid-container">
+            <div id="form-outside">
+                <div id="forminsides" class="row">
+                    <div class="col-md-12">
+                        <div class="info-inner-div">
+                            <div>
+                                <label class="cs-lang" for="id_jmeno">Jméno:</label>
+                                <label class="en-lang" for="id_jmeno">Name:</label>
+                            </div>
+                            <div>
+                                <input type="text" name="jmeno" maxlength="20" required id="id_jmeno"
+                                       value="{{ adult.jmeno }}">
+                            </div>
+                            <div>
+                                <label class="cs-lang" for="id_prijmeni">Příjmení:</label>
+                                <label class="en-lang" for="id_prijmeni">Surname:</label>
+                            </div>
+                            <div>
+                                <input type="text" name="prijmeni" maxlength="20" required id="id_prijmeni"
+                                       value="{{ adult.prijmeni }}">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="form-buttons" class="row">
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="mx-auto co-12 button-inner-div">
+                                <input name="input_button" class="cs-lang change-button" type="submit" formmethod="post"
+                                       value="Uložit změny"></input>
+                                <input name="input_button" class="en-lang change-button" type="submit" formmethod="post"
+                                       value="Save changes"></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="mx-auto co-12 button-inner-div">
+                                <input name="input_button" class="cs-lang change-button" type="submit" formmethod="post"
+                                       value="Storno"></input>
+                                <input name="input_button" class="en-lang change-button" type="submit" formmethod="post"
+                                       value="Storno"></input>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="mx-auto co-12 button-inner-div">
+                                <input name="input_button" class="cs-lang change-button" type="submit" formmethod="post"
+                                       value="Smazat záznam"></input>
+                                <input name="input_button" class="en-lang change-button" type="submit" formmethod="post"
+                                       value="Delete entry"></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
+{% endblock %}
+

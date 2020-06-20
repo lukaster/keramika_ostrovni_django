@@ -1,0 +1,184 @@
+{% extends "keramika_ostrovni_web/base.html" %}
+{% block title %}Keramická dílna brána jazyků{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/children_styling.css">
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/account_info.css">
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/help_tip.css">
+{% endblock %}
+{% block js %}
+    <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            set_bg_color();
+            //add_time_table();
+        });
+    </script>
+{% endblock %}
+{% block page_content %}
+    <div class="row">
+        <div class="co-12 mx-auto">
+            <div id="info-table" class="grid-container">
+
+                <div id="top-info-row" class="grid" style="grid-template-columns: 100% 0 0; position: relative">
+                    <div class="help-tip cs-lang">
+                        <p>Kontaktní informace na rodiče/dospělou osobu zodpovědnou za žáka/účastníka kurzů pro
+                            dospělé.</p>
+                    </div>
+                    <div class="help-tip en-lang">
+                        <p>Contact information for parents/adult responsible for children in classes/participants of
+                            adult evening pottery classes</p>
+                    </div>
+                    <div class="grid-item">
+                        <div id="forminsides" class="row" style="padding-left: 10px">
+                            <div class="col-md-12">
+                                <div class="info-inner-div">
+                                    <div style="margin-top: 10px">
+                                        <label class="cs-lang">Kontaktní informace k účtu</label>
+                                        <label class="en-lang">Contact information for account</label>
+                                        <label>{{ username }}</label>
+                                        <hr>
+                                    </div>
+                                    <div style="font-size: 18px">
+                                        <label class="cs-lang" for="id_jmeno">Jméno:</label>
+                                        <label class="en-lang" for="id_jmeno">Name:</label>
+                                    </div>
+                                    <div>
+                                        {{ kontakt_info.jmeno }}
+                                    </div>
+
+                                    <div style="font-size: 18px;padding-top: 10px">
+                                        <label class="cs-lang" for="id_prijmeni">Příjmení:</label>
+                                        <label class="en-lang" for="id_prijmeni">Surname:</label>
+                                    </div>
+                                    <div>
+                                        {{ kontakt_info.prijmeni }}
+                                    </div>
+                                    <div style="font-size: 18px;padding-top: 10px">
+                                        <label class="cs-lang" for="id_telefoni_cislo">Tel. číslo:</label>
+                                        <label class="en-lang" for="id_telefoni_cislo">Phone number:</label>
+                                    </div>
+                                    <div>
+                                        {{ kontakt_info.telefoni_cislo }}
+                                    </div>
+
+
+                                    <div style="font-size: 18px;padding-top: 10px">
+                                        <label for="id_email">Email:</label>
+                                    </div>
+                                    <div style="margin-bottom: 10px">
+                                        {{ kontakt_info.email }}
+
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="mx-auto co-12">
+                                            <button class="cs-lang change-button" style="  font-size: 22px"
+                                                    onclick="location.href='{% url "account_info_edit" %}'">Upravit
+                                                informace o účtu
+                                            </button>
+                                            <button class="en-lang change-button" style="  font-size: 22px"
+                                                    onclick="location.href='{% url "account_info_edit" %}'">Edit account
+                                                contact information
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {% for child in children %}
+                    <div class="grid">
+                        <div class="grid-item">
+                            <div class="text-inner-div">
+                                {{ child.jmeno }} {{ child.prijmeni }}
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="text-inner-div">
+                                {{ child.rocnik }}.{{ child.paralelka }}
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="button-inner-div">
+                                <button class="cs-lang change-button"
+                                        onclick="location.href='{% url "child_edit" child_id=child.id %}'">Změnit údaje
+                                </button>
+                                <button class="en-lang change-button"
+                                        onclick="location.href='{% url "child_edit" child_id=child.id %}'">Edit info
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+                <div class="grid add-button-row" style="position: relative">
+                           <div class="help-tip cs-lang">
+                        <p>Přidat položku do seznamu dětí, které poté budete moci zapisovat do konkrétních keramických kurzů</p>
+                    </div>
+                    <div class="help-tip en-lang">
+                        <p>Add to the list of children, which you will then be able to sign up for specific pottery class</p>
+                    </div>
+                    <div class="grid-item">
+                        <button class="cs-lang change-button" style="  font-size: 22px;"
+                                onclick="location.href='{% url "child_add_new" %}'">Přidat dalšího žáka
+                        </button>
+                        <button class="en-lang change-button" style="  font-size: 22px;"
+                                onclick="location.href='{% url "child_add_new" %}'">Add another child
+                        </button>
+                    </div>
+                </div>
+                {% for adult in dospeli %}
+                    <div class="grid">
+                        <div class="grid-item">
+                            <div class="text-inner-div">
+                                {{ adult.jmeno }} {{ adult.prijmeni }}
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="cs-lang text-inner-div">
+                                Dospělý
+                            </div>
+                            <div class="en-lang text-inner-div">
+                                Adult
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="button-inner-div">
+                                <button class="cs-lang change-button"
+                                        onclick="location.href='{% url "adult_edit" adult_id=adult.id %}'">Změnit údaje
+                                </button>
+                                <button class="en-lang change-button"
+                                        onclick="location.href='{% url "adult_edit" adult_id=adult.id %}'">Edit info
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+                <div class="grid add-button-row" style="position: relative">
+                          <div class="help-tip cs-lang">
+                        <p>Přidat položku do seznamu dospělých, kteří se poté budou moci zapisovat do konkrétních keramických kurzů</p>
+                    </div>
+                    <div class="help-tip en-lang">
+                        <p>Add to the list of adults, which you will then be able to sign up for specific pottery class</p>
+                    </div>
+                    <div class="grid-item">
+                        <button class="cs-lang change-button" style="  font-size: 22px;"
+                                onclick="location.href='{% url "adult_add_new" %}'">Přidat dalšího dospělého
+                        </button>
+                        <button class="en-lang change-button" style="  font-size: 22px;"
+                                onclick="location.href='{% url "adult_add_new" %}'">Add another adult
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+{% endblock %}
+S

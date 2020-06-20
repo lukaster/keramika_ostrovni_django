@@ -1,0 +1,110 @@
+{% extends "keramika_ostrovni_web/base.html" %}
+{% block title %}Keramická dílna brána jazyků{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/children_sign_into_classes.css">{% endblock %}
+
+{% block js %}
+    <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
+
+{% endblock %}
+{% block page_content %}
+
+    <div class="row">
+
+        <div class="fill-screen col-12"
+             style="background-color:rgba(83, 127, 166, 0.65);padding-bottom: 50px">
+            <div id="time_table" class="col-lg-11">
+                <form action="{% url 'sign_up_child' %}" method="post">
+                    {% csrf_token %}
+                    <div class="cs-lang">
+                        <table class="cs table table-striped" style="width:100%">
+                            <tr>
+                                <div class="row">
+                                    <div class="col-md-8"><h3> Rozpis kroužků keramiky 2019/2020</h3></div>
+                                    <div class="col-md-4">
+                                        {% if children %}
+                                            <select name="child" class="custom-select">
+                                                {% for child in children %}
+                                                    <option value="{{ child.id }}">{{ child.jmeno }} {{ child.prijmeni }}</option>
+
+                                                {% endfor %}
+                                            </select>
+                                        {% else %}
+                                            <div><a href="{% url 'account_info' %}"
+                                                    style="color: maroon;font-weight: bold">Pro zápis založte účty
+                                                dětí</a></div>
+                                        {% endif %}
+
+
+                                    </div>
+                                </div>
+                            </tr>
+                            <thead>
+                            <tr>
+                                <th scope="col">Den</th>
+                                <th scope="col">Od - do</th>
+                                <th scope="col">Žáci</th>
+                                <th scope="col">Hodinu vede</th>
+                                <th scope="col">Max. Kapacita</th>
+                                <th scope="col">Volná místa</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for course in courses %}
+                                <tr>
+                                    <td>{{ course.den_cs }}</td>
+                                    <td>{{ course.od }} - {{ course.do }}</td>
+                                    <td>{{ course.zaci_trida }} třída</td>
+                                    <td>{{ course.ucitel }}</td>
+                                    <td>{{ course.max_kapacita_krouzku }}</td>
+                                    <td>{{ course.free_spots }}</td>
+
+                                    <td>
+
+                                        {% if course.is_full %}
+                                             <button class="btn btn-sm btn-outline-secondary" name="sign_in_button"
+                                                    type="submit" value="{{ course.id }}" formmethod="post">zapsat jako náhradník
+                                            </button>
+                                        {% else %}
+                                            <button class="btn btn-sm btn-outline-dark" name="sign_in_button"
+                                                    type="submit" value="{{ course.id }}" formmethod="post">zapsat
+                                            </button>
+                                        {% endif %}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="en-lang">
+                        <table class="en  table table-striped" style="width:100%">
+                            <tr><h3> Timetable of pottery classes 2019/2020</h3></tr>
+                            <thead>
+                            <tr>
+                                <th scope="col">Day</th>
+                                <th scope="col">From - to</th>
+                                <th scope="col">Students</th>
+                                <th scope="col">Teacher</th>
+                                <th scope="col">Free spots</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for course in courses %}
+                                <tr>
+                                    <td>{{ course.den_en }}</td>
+                                    <td>{{ course.od }} - {{ course.do }}</td>
+                                    <td>{{ course.zaci_trida }} grade</td>
+                                    <td>{{ course.ucitel }}</td>
+                                    <td>{{ course.max_kapacita_krouzku }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

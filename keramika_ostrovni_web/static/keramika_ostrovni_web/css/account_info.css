@@ -1,0 +1,111 @@
+.label-info-div {
+  font-size: 40px !important;
+}
+
+.add-button-row {
+  display: grid;
+  grid-template-columns: 50vw !important;
+  padding: 35px 5px !important;
+}
+.add-button-row .grid-item {
+  margin: auto;
+}
+
+#info-table {
+  margin-top: 5vh;
+  color: #031740;
+  font-size: 22px;
+  font-weight: bold;
+  width: 50vw;
+}
+#info-table .grid {
+  display: grid;
+  grid-template-columns: 26vw 5vw 14vw;
+  border: 2px solid #031740;
+  border-radius: 16px;
+  background-color: rgba(83, 127, 166, 0.65);
+  padding: 50px 5px;
+  margin-top: 10px;
+}
+#info-table .grid .grid-item {
+  position: relative;
+}
+#info-table .grid .grid-item .text-inner-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#info-table .grid .grid-item .button-inner-div {
+  position: absolute;
+  left: 50%;
+  transform: translate(0%, -50%);
+}
+
+.change-button {
+  font-size: 16px;
+  display: inline-block;
+  background-color: #ddd;
+  border: none;
+  color: #031740;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  border-style: solid;
+  border-color: #fcfaf2;
+}
+
+.change-button:hover {
+  background-color: #f1f1f1;
+  border-style: solid;
+  border-color: #ddd;
+}
+
+#back_to_top_row {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .add-button-row {
+    grid-template-columns: 50vw !important;
+  }
+
+  #info-table .grid {
+    grid-template-columns: 26vw 5vw 14vw;
+  }
+}
+@media (max-width: 999px) {
+  .add-button-row {
+    grid-template-columns: 95vw !important;
+  }
+
+  #info-table {
+    width: 95vw;
+  }
+  #info-table .grid {
+    grid-template-columns: 45vw 5vw 32vw;
+  }
+}
+@media (max-width: 400px) {
+  .add-button-row {
+    grid-template-columns: 95vw !important;
+  }
+
+  #info-table {
+    font-size: 18px;
+    width: 95vw;
+  }
+  #info-table .grid {
+    grid-template-columns: 40vw 5vw 32vw;
+  }
+
+  .change-button {
+    font-size: 14px;
+  }
+}
+
+/*# sourceMappingURL=account_info.css.map */

@@ -79,8 +79,58 @@
         <div class="fill-screen col-12"
              style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/before_and_after/apo5cropped.jpg)">
             <div id="time_table" class="col-lg-8">
-
+            <div class="cs-lang">
+                <table class="cs" style="width:100%">
+                    <tr><h3> Rozpis kroužků keramiky 2019/2020</h3></tr>
+                    <thead>
+                    <tr>
+                        <th>Den</th>
+                        <th>Od - do</th>
+                        <th>Žáci</th>
+                        <th>Hodinu vede</th>
+                        <th>Volná místa</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for course in courses %}
+                        <tr>
+                            <td>{{  course.den_cs }}</td>
+                            <td>{{ course.od }} - {{ course.do }}</td>
+                            <td>{{ course.zaci_trida }} třída</td>
+                            <td>{{ course.ucitel }}</td>
+                            <td>{{ course.max_kapacita_krouzku }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
+            <div class="en-lang">
+            <table class="en" style="width:100%">
+                    <tr><h3> Timetable of pottery classes 2019/2020</h3></tr>
+                    <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>From - to</th>
+                        <th>Students</th>
+                        <th>Teacher</th>
+                        <th>Free spots</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for course in courses %}
+                        <tr>
+                            <td>{{ course.den_en }}</td>
+                            <td>{{ course.od }} - {{ course.do }}</td>
+                            <td>{{ course.zaci_trida }} grade</td>
+                            <td>{{ course.ucitel }}</td>
+                            <td>{{ course.max_kapacita_krouzku }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            </div>
+
         </div>
     </div>
     <div class="row news-row">
