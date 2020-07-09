@@ -24,6 +24,7 @@
                                     <div class="col-md-4">
                                         {% if children %}
                                             <select name="child" class="custom-select">
+
                                                 {% for child in children %}
                                                     <option value="{{ child.id }}">{{ child.jmeno }} {{ child.prijmeni }}</option>
 

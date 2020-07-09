@@ -12,7 +12,6 @@ class LekceDospeliAdmin(admin.ModelAdmin):
     list_display = ('cislo_krouzku','den','datum','od','do','ucitel','max_kapacita_krouzku')
 
 
-
 # Register your models here.
 admin.site.register(Aktuality, AktualityAdmin)
 admin.site.register(Krouzek, KrouzekAdmin)

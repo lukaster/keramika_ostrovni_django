@@ -338,6 +338,7 @@ def children_sign_into_classes(request):
         raise Http404("Prosíme, nejprve se přihlašte :)")
     print(request.method)
     if request.method == 'GET':
+
         children = request.user.deti.all()
         context = {
             "username": request.user.username,
