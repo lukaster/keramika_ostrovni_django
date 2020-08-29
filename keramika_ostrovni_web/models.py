@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 
 
@@ -27,8 +28,12 @@ class Krouzek(models.Model):
     max_kapacita_krouzku = models.IntegerField(default=10)
     cena = models.IntegerField(default=1800)
 
+    start_fronty = models.IntegerField(default=0)
+    konec_fronty = models.IntegerField(default=0)
+
     def __str__(self):
-        return f"{self.cislo_krouzku}:{self.den} {self.od}-{self.do}"
+        return f"{self.cislo_krouzku}:{self.den} {self.od}-{self.do}; fronta({self.start_fronty},{self.konec_fronty})"
+
 
 class LekceDospeli(models.Model):
     DAY_CHOICES = (
@@ -56,13 +61,29 @@ class Dite(models.Model):
     # 3.A
     rocnik = models.IntegerField(blank=False)
     paralelka = models.CharField(max_length=1, blank=False)
+    # 2020/2021
     ve_skolnim_roce = models.CharField(max_length=9, blank=False)
 
-    krouzky = models.ManyToManyField(Krouzek, blank=True, related_name='zaci_krouzku')
+    zapsany_krouzek = models.ManyToManyField(Krouzek, blank=True, related_name='zaci_krouzku')
+    zapsany_JN_krouzek = models.ManyToManyField(Krouzek, blank=True,
+                                                related_name='nahradnici_krouzku')  # jako nahradnik
+    poradi_nahradnika = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.jmeno} {self.prijmeni}, {self.rocnik}.{self.paralelka}"
 
+"""
+class FrontaNahradniku(models.Model):
+
+    krouzek = models.ForeignKey(Krouzek,
+                                on_delete=models.CASCADE,
+                                related_name="fronta"
+                                )
+    start_fronty = models.IntegerField(max_length=9,default=0)
+    konec_fronty = models.IntegerField(max_length=9,default=0)
+    def __str__(self):
+        return f"Fronta ke krouzku {self.krouzek}, {self.start_fronty}-{self.konec_fronty}"
+"""
 
 class Dospely(models.Model):
     username = models.ForeignKey(
@@ -85,8 +106,8 @@ class KontaktInfo(models.Model):
     )
     jmeno = models.CharField(max_length=20, blank=True)
     prijmeni = models.CharField(max_length=20, blank=True)
-    telefoni_cislo = models.IntegerField( null=True, blank=True, default=None)
-    email = models.EmailField(max_length=254)#,default=User.username)
+    telefoni_cislo = models.IntegerField(null=True, blank=True, default=None)
+    email = models.EmailField(max_length=254)  # ,default=User.username)
 
     def __str__(self):
         return f"{self.jmeno} {self.prijmeni} {self.telefoni_cislo} {self.email}"
@@ -104,4 +125,3 @@ class PlatebniInfo(models.Model):
 
     def __str__(self):
         return f"{self.cislo_uctu} {self.var_symbol}  {self.suma_k_zaplaceni}kc"
-

@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout
 from .models import Aktuality, Dite, Dospely, Krouzek, KontaktInfo, PlatebniInfo, LekceDospeli
 from .forms import DiteForm, DospelyForm, KontaktInfoForm
 from django.urls import reverse
+from .manage_fifo_zapis_krouzku import zapis_ditete,zapis_nahradnika,odhlaseni_ditete,odhlaseni_nahradnika
 
 # Create your views here.
 def index(request):
@@ -19,7 +20,7 @@ def children(request):
     context = {
         "username": request.user.username,
         "aktuality": Aktuality.objects.filter(typ_aktualit='children').all(),
-        "courses": Krouzek.objects.all()
+        "courses": Krouzek.objects.all().order_by("cislo_krouzku")
     }
 
     for course in context.get('courses'):
@@ -35,6 +36,25 @@ def children(request):
 
     return render(request, "keramika_ostrovni_web/children.html", context)
 
+def provizorni_zapis(request):
+    context = {
+       # "username": request.user.username,
+       # "aktuality": Aktuality.objects.filter(typ_aktualit='children').all(),
+       # "courses": Krouzek.objects.all()
+    }
+
+    #for course in context.get('courses'):
+    #    course.den_cs, course.den_en = day_to_text_dict(course.den)
+        # print(course.den)
+        # print(course.den_cs)
+        # print(course.den_en)
+        # print("...............")
+
+    # for course in context.get('courses'):
+    #     children = course.zaci_krouzku.all()
+    #     print(children)
+
+    return render(request, "keramika_ostrovni_web/provizorni_zapis.html", context)
 
 def day_to_text_dict(course_day):
     course_day_cs = ""
@@ -209,7 +229,7 @@ def child_edit(request, child_id):
                 print("new")
                 print(child)
                 child.save()
-                print(Dite.objects.all())
+                #print(Dite.objects.all())
                 return redirect('account_info')
             else:
                 print("form not valid")
@@ -360,27 +380,54 @@ def children_sign_into_classes(request):
                 course.is_full = True
             else:
                 course.is_full = False
-            #print(course.free_spots)
+        """for child in context.get('children'):
+            krouzky = child.zapsany_krouzek.all()
+            nahradni_krouzky = child.zapsany_JN_krouzek.all()
+            if len(krouzky)>0:
+                print("zapsany krouzek")
+                print(child.jmeno)
+                print(krouzky[0].cislo_krouzku)
+            if len(nahradni_krouzky)>0:
+                print("zapsany nahradni krouzek")
+                print(child.jmeno)
+                print(nahradni_krouzky[0].cislo_krouzku)
+
+            #print(course.free_spots)"""
         return render(request, "keramika_ostrovni_web/children_sign_into_classes.html", context)
 
 
 def sign_up_child(request):
+    print("in sign_up_child")
     try:
-        child_id = int(request.POST["child"])
+        print(request.POST["sign_in_button"])
+        input_list = request.POST["sign_in_button"].strip('][').split(',')
+        course_id = input_list[0]
+        child_id = input_list[1]
+        forma_zapisu = int(input_list[2])
+
         child = Dite.objects.get(pk=child_id)
-        print(child_id)
         print(child.jmeno)
-        print(request.POST)
-        course_id = int(request.POST["sign_in_button"])
         course = Krouzek.objects.get(pk=course_id)
         print(course)
-        #child.krouzky.add()
+        #child.zapsany_krouzek.add()
         print("-*-*-*-*-*-*")
     except:
         raise Http404("something went terribly wrong >{")
 
-    child.krouzky.add(course)
+    if forma_zapisu==0:
+        print("zahajen zapis")
+        zapis_ditete(child, course)
+        print("zapsan")
+        print("----")
+
+    if forma_zapisu == 1:
+        print("zahajen zapis jako nahradnik")
+        zapis_nahradnika(child,course)
+        print("zapsan")
+        print("----")
+    #return render(request, "keramika_ostrovni_web/children_sign_into_classes.html", context)
     return HttpResponseRedirect(reverse("children_sign_into_classes", args=()))
+
 
 def children_logout(request):
     if request.user.is_anonymous:
