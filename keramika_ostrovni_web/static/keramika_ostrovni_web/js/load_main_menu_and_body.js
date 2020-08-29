@@ -104,10 +104,16 @@ function menu_hover_dropdowns() {
 }
 
 
+
 function manage_user_dropdown(userName) {
 
     var language = window.localStorage.getItem('language');
     console.log(language);
+    if (language == null) {
+        language = 'cs'
+        alert('variable was null now is');
+        console.log(language);
+    }
     console.log(userName);
     if (userName === "") {
         $('.user-dropdown-item').each(function (index, item) {
