@@ -1,7 +1,63 @@
-.fill-screen {
-  background: url(../images/used_pictures/before_and_after/apo4.jpg) no-repeat center center fixed;
-  background-size: cover;
-  background-position: center;
+.back-to-the-top-button {
+  display: inline-block;
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  border-style: solid;
+  border-color: #fcfaf2;
+}
+
+.back-to-the-top-button:hover {
+  background-color: #f1f1f1;
+  font-weight: bold;
+  padding: 10px 22px;
+  border-style: solid;
+  border-color: #ddd;
+}
+
+.border-row {
+  padding-top: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 7px;
+  border-bottom-color: #ddd;
+}
+
+.content-row {
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .text-div {
+    position: relative !important;
+  }
+  .text-div .inside-text-container {
+    position: absolute;
+    top: 5%;
+    left: 5vw;
+    width: 80%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1150px) {
+  .long-text {
+    font-size: 17px;
+  }
+
+  .contact-info {
+    font-size: 15px;
+  }
+
+  .contact {
+    font-size: 20px;
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+  }
 }
 
 /*# sourceMappingURL=teachers_styling.css.map */

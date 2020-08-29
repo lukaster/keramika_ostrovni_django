@@ -15,7 +15,7 @@ function add_time_table() {
     });
     console.log("table loaded")
 }
-
+u
 
 function switch_page_language() {
     console.log('in children switch');

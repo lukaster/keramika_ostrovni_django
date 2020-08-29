@@ -50,10 +50,11 @@ $cdarkbeige: #bfbd9f;
       }
     }
     #user-nav-item {
-      border-right-style: solid;
+      /*commented out divider*/
+     /* border-right-style: solid;
       border-right-width: 2px;
       border-right-color: $cdarkblue;
-      margin-right: 10px;
+      margin-right: 10px;*/
 
       #user-account-link {
         padding-right: 10px;

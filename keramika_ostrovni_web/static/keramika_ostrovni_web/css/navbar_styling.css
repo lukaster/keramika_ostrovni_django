@@ -39,10 +39,11 @@
     padding: 4px;
   }
   #navbar-template-section #user-nav-item {
-    border-right-style: solid;
-    border-right-width: 2px;
-    border-right-color: #031740;
-    margin-right: 10px;
+    /*commented out divider*/
+    /* border-right-style: solid;
+     border-right-width: 2px;
+     border-right-color: $cdarkblue;
+     margin-right: 10px;*/
   }
   #navbar-template-section #user-nav-item #user-account-link {
     padding-right: 10px;

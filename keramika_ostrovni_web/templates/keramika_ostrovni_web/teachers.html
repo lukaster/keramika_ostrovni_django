@@ -3,35 +3,150 @@
 {% block links %}
     <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/teachers_styling.css">{% endblock %}
 {% block js %}
+
+    <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
     <script>
 
+        document.addEventListener('DOMContentLoaded', () => {
+            set_bg_color();
+            //add_time_table();
+        });
+        var navbarsize = 'large';
+        window.onscroll = () => {
+            //navbar_resizing_scrolling();
+
+        };
         $(function () {
             $(window).on("load resize", function () {
-                $(".fill-screen").css("height", window.innerHeight);
-            });
-        });
+                if (window.innerWidth > 589) {
 
+                    if (window.innerHeight < 500) {
+                        $(".fill-screen").css("height", "500px"); //mobile sideways, table does not overflow background
+                    } else {
+
+                        $(".fill-screen").css("height", window.innerHeight); // big screen, background exactly matches window
+                    }
+                } else {
+                    $(".fill-screen").css("height", "1150px");//mobile view, table longer than one screen height
+                }
+
+                if (window.innerWidth > 751) {
+                    var display_curr = $('#navbar-template-section').css("display")
+                    if (display_curr === "none") {
+                        $('#navbar-template-section').css("display", "flex");
+                        $('#hide-navbar-button').css({
+                            "border-color": "#fcfaf2",
+                            "color": "#fcfaf2",
+                            "padding-bottom": "6px",
+                            "border-width": "0px",
+                            "top": "8px"
+                        });
+                    }
+                }
+            });
+
+
+            $('#hide-navbar-button').click(function () {
+                console.log("button pushed")
+                var display_curr = $('#navbar-template-section').css("display")
+                if (display_curr === "none") {
+                    $('#navbar-template-section').css("display", "flex");
+                    $('#hide-navbar-button').css({
+                        "border-color": "#fcfaf2",
+                        "color": "#fcfaf2",
+                        "padding-bottom": "6px",
+                        "border-width": "0px",
+                        "top": "8px"
+                    });
+                } else {
+                    $('#navbar-template-section').css("display", "none");
+                    $('#hide-navbar-button').css({
+                        "border-color": "#031740",
+                        "color": "#031740",
+                        "padding-bottom": "2px",
+                        "border-width": "1px",
+                        "top": "-0.8em"
+                    });
+                }
+
+
+            });
+        })
+        ;
     </script>
+
 
 {% endblock %}
 {% block page_content %}
-    <div class="row">
-        <div class="fill-screen col-12">
 
+    <div class="row content-row">
+        <div class="col-md-5 order-md-2 image-div image-div-1">
+            <img src="../../static/keramika_ostrovni_web/images/teachers_foto/Eva_Lukasova_c.jpg"
+                 style="width: 100%"/>
+        </div>
+        <div class="col-md-7 order-md-1 text-div">
+            <div class="inside-text-container">
+                <article class="text_square">
+                    <h2><b>Mgr. Eva Lukášová</b></h2>
+                    <h4 class="cs-lang long-text">Muf
+                        </h4>
+                    <h4 class="en-lang" style="display: none"></h4>
+                            <h3 class="contact"><b>Kontakt:</b></h3>
+                    <table class="table table-borderless table-sm">
+                        <tr>
+                            <td><b>Tel: </b></td>
+                            <td>+420 602 753 416</td>
+                        </tr>
+                         <tr>
+                            <td><b>Email: </b></td>
+                            <td>lukasova.eva@centrum.cz</td>
+                        </tr>
+                    </table>
+                </article>
+            </div>
 
         </div>
-    </div>
-    <div class="row content-filler">
-        <div class="col-12">
 
+    </div>
+    <div class="row border-row"></div>
+    <div class="row content-row">
+        <div class="col-md-5 order-md-2 image-div image-div-1">
+            <img src="../../static/keramika_ostrovni_web/images/teachers_foto/Alena_Kinclova_c.jpg"
+                 style="width: 100%"/>
+        </div>
+        <div class="col-md-7 order-md-1 text-div">
+            <div class="inside-text-container">
+                <article class="text_square">
+                    <h2><b>Bc. Alena Kinclová</b></h2>
+                    <h4 class="cs-lang long-text">Absolventka Svatojánské koleje - Předškolní pedagogika a Teologické fakulty
+                        Jihočeské univerzity - obor Pedagogika volného času, 12 let praxe v MŠ (poslední 2 roky u
+                        Voršil).<br>
+                        Kolem keramiky se motám od dvaceti let, hlavně protože mě moc baví, asi rok jsem pomáhala s
+                        klienty psychiatrické léčebny v rámci ergoterapie a ve školce tvořím s dětmi celou dobu, co v ní
+                        pracuji. Nejsem velký umělec, ale práce s hlínou mi přináší radost a vidím, že dětem taky a
+                        pomáhá jim v rozvoji celé jejich osobnosti.<br>
+                        Moc ráda čtu, plavu, chodím po lese a po horách, jsem máma 2 skoro dospělých holek, pro rodinu
+                        ráda peču různé dobroty.</h4><br>
+                    <h4 class="en-lang" style="display: none"></h4>
+                           <h3 class="contact"><b>Kontakt:</b></h3>
+                    <table class="table table-borderless table-sm">
+                        <tr>
+                            <td><b>Tel: </b></td>
+                            <td>+420 123 123 123</td>
+                        </tr>
+                         <tr>
+                            <td><b>Email: </b></td>
+                            <td>alyzakinclova@gmail.com</td>
+                        </tr>
+                    </table>
+                </article>
+            </div>
 
         </div>
 
     </div>
-    <p>Eva Lukášová
-        Vystudovala pedagogickou fakultu UK Praha obor Rj a Vv.
-        V letech 1999-2002 navštěvovala ker. kurzy v keramickém atelieru K v Praze 8. Dnes vyučuje na ZŠ brána jazyků v
-        Praze 1 výtvarnou výchovu děti 2. stupně a jedenáctý rok vede keramické a kroužky pro děti od 4 do 15-ti a
-        keramické kroužky pro dospělé.
-    </p>
+    <div class="row border-row"></div>
+
+
+
 {% endblock %}

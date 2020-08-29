@@ -20,16 +20,16 @@
                         <table class="cs table table-striped" style="width:100%">
                             <tr>
                                 <div class="row">
-                                    <div class="col-md-8"><h3> Rozpis kroužků keramiky 2019/2020</h3></div>
+                                    <div class="col-md-8"><h3> Rozpis kroužků keramiky 2020/2021</h3></div>
                                     <div class="col-md-4">
                                         {% if children %}
-                                            <select name="child" class="custom-select">
+                                            <!--  <select name="child" class="custom-select">-->
 
-                                                {% for child in children %}
-                                                    <option value="{{ child.id }}">{{ child.jmeno }} {{ child.prijmeni }}</option>
+                                            <!--      {% for child in children %}-->
+                                                <!--          <option value="{{ child.id }}">{{ child.jmeno }} {{ child.prijmeni }}</option>-->
 
-                                                {% endfor %}
-                                            </select>
+                                                <!--     {% endfor %}-->
+                                            <!--     </select>-->
                                         {% else %}
                                             <div><a href="{% url 'account_info' %}"
                                                     style="color: maroon;font-weight: bold">Pro zápis založte účty
@@ -48,7 +48,10 @@
                                 <th scope="col">Hodinu vede</th>
                                 <th scope="col">Max. Kapacita</th>
                                 <th scope="col">Volná místa</th>
-                                <th scope="col"></th>
+                                {% for child in children %}
+                                    <th scope="col">{{ child.jmeno }}</th>
+                                {% endfor %}
+
                             </tr>
                             </thead>
                             <tbody>
@@ -61,17 +64,46 @@
                                     <td>{{ course.max_kapacita_krouzku }}</td>
                                     <td>{{ course.free_spots }}</td>
 
-                                    <td>
 
-                                        {% if course.is_full %}
-                                             <button class="btn btn-sm btn-outline-secondary" name="sign_in_button"
-                                                    type="submit" value="{{ course.id }}" formmethod="post">zapsat jako náhradník
-                                            </button>
-                                        {% else %}
-                                            <button class="btn btn-sm btn-outline-dark" name="sign_in_button"
-                                                    type="submit" value="{{ course.id }}" formmethod="post">zapsat
-                                            </button>
-                                        {% endif %}
+                                    {% for child in children %}
+                                        <td>
+                                            {% if course.is_full %}
+                                                {% if  child.zapsany_krouzek.first.id == course.id %}
+                                                    <button class="btn btn-sm btn-dark" disabled name="sign_in_button"
+                                                            type="submit" value="[{{ course.id }},{{ child.id }},0]"
+                                                            formmethod="post">Zapsán
+                                                    </button>
+                                                {% else %}
+                                                    {% if  child.zapsany_JN_krouzek.first.id == course.id %}
+                                                        <button class="btn btn-sm btn-secondary" disabled
+                                                                name="sign_in_button"
+                                                                type="submit" value="[{{ course.id }},{{ child.id }},1]"
+                                                                formmethod="post">Zapsán jako náhradník č.{{ child.poradi_nahradnika }}
+                                                        </button>
+                                                    {% else %}
+                                                        <button class="btn btn-sm btn-outline-secondary"
+                                                                name="sign_in_button"
+                                                                type="submit" value="[{{ course.id }},{{ child.id }},1]"
+                                                                formmethod="post">zapsat
+                                                            jako náhradník
+                                                        </button>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% else %}
+                                                {% if  child.zapsany_krouzek.first.id == course.id %}
+                                                    <button class="btn btn-sm btn-dark" disabled name="sign_in_button"
+                                                            type="submit" value="[{{ course.id }},{{ child.id }},0]"
+                                                            formmethod="post">Zapsán
+                                                    </button>
+                                                {% else %}
+                                                    <button class="btn btn-sm btn-outline-dark" name="sign_in_button"
+                                                            type="submit" value="[{{ course.id }},{{ child.id }},0]"
+                                                            formmethod="post"> zapsat
+                                                    </button>
+                                                {% endif %}
+                                            {% endif %}
+                                        </td>
+                                    {% endfor %}
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -79,7 +111,7 @@
                     </div>
                     <div class="en-lang">
                         <table class="en  table table-striped" style="width:100%">
-                            <tr><h3> Timetable of pottery classes 2019/2020</h3></tr>
+                            <tr><h3> Timetable of pottery classes 2020/2021</h3></tr>
                             <thead>
                             <tr>
                                 <th scope="col">Day</th>
