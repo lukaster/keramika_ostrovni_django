@@ -25,7 +25,7 @@ SECRET_KEY = 'y40%zji5w(p4y4!7!k1d)%o)_8x-0gci-dz4qe0__u!w5f8t9&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -118,5 +118,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+os.path.join(BASE_DIR, 'keramika_ostrovni_web/static'),
+)
+STATIC_ROOT = os.path.join(BASE_DIR, 'keramika_ostrovni_web/static')

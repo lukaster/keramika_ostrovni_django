@@ -4,7 +4,6 @@ from django.contrib.auth import login, logout
 from .models import Aktuality, Dite, Dospely, Krouzek, KontaktInfo, PlatebniInfo, LekceDospeli
 from .forms import DiteForm, DospelyForm, KontaktInfoForm
 from django.urls import reverse
-from .manage_fifo_zapis_krouzku import zapis_ditete,zapis_nahradnika,odhlaseni_ditete,odhlaseni_nahradnika
 
 # Create your views here.
 def index(request):
