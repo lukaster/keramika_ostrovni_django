@@ -4,11 +4,11 @@ function add_time_table() {
     console.log(language);
     if (language == null) {
         language = 'cs';
-        alert('variable was null now is');
-        console.log(language);
+        //console.log('variable was null now is');
+        //console.log(language);
     }
     var table_filepath = '';
-    console.log(language);
+    //console.log(language);
     if (language === 'en') {
         table_filepath = '../templates/time_table_adults_en.html';
     }
@@ -20,15 +20,15 @@ function add_time_table() {
 
         $('#time_table').html($data.unwrap());
     });
-    console.log("table loaded")
+    //console.log("table loaded")
 }
 
 
 function switch_page_language() {
-    console.log('in adults switch');
+    //console.log('in adults switch');
 
     var language = window.localStorage.getItem('language');
-    console.log(language);
+    //console.log(language);
     //add_time_table();
     if (language === 'en') {
         $('.cs-lang').each(function (index, item) {

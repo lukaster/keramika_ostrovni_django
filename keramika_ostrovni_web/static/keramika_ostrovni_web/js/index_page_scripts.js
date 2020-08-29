@@ -1,11 +1,11 @@
 function switch_page_language() {
     var language = window.localStorage.getItem('language');
-    console.log("language");
-    console.log(language);
+    //console.log("language");
+    //console.log(language);
     if (language == null) {
         language = 'cs'
-        alert('variable was null now is');
-        console.log(language);
+        //console.log('variable was null now is');
+        //console.log(language);
     }
     if (language === 'en') {
         $('.cs-lang').each(function (index, item) {
@@ -39,14 +39,14 @@ function switch_page_language() {
 
 function make_sure_lang_is_set() {
     var language = window.localStorage.getItem('language');
-    console.log("making sure fns")
-    console.log(language);
+    //console.log("making sure fns")
+    //console.log(language);
 
     if (language == null) {
         window.localStorage.setItem('language', 'cs');
         var language = window.localStorage.getItem('language');
-        alert('making sure, variable was null now is');
-        console.log(language);
+        //console.log('making sure, variable was null now is');
+        //console.log(language);
     }
 }
 

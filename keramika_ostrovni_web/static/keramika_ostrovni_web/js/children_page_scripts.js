@@ -1,11 +1,12 @@
 function add_time_table() {
     var language = window.localStorage.getItem('language');
-    console.log("language");
-    console.log(language);
+    //console.log("language");
+    //console.log(language);
     if (language == null) {
         language = 'cs'
-        alert('variable was null now is');
-        console.log(language);
+         window.localStorage.setItem('language', 'cs');
+        //console.log('variable was null now is');
+        //console.log(language);
     }
     var table_filepath = '';
     console.log(language);
@@ -20,15 +21,15 @@ function add_time_table() {
 
         $('#time_table').html($data.unwrap());
     });
-    console.log("table loaded")
+    //console.log("table loaded")
 }
 
 
 function switch_page_language() {
-    console.log('in children switch');
+    //console.log('in children switch');
 
     var language = window.localStorage.getItem('language');
-    console.log(language);
+    //console.log(language);
     //add_time_table();
     if (language === 'en') {
         $('.cs-lang').each(function (index, item) {
@@ -59,13 +60,13 @@ function switch_page_language() {
 
 function make_sure_lang_is_set() {
     var language = window.localStorage.getItem('language');
-    console.log("making sure fns")
-    console.log(language);
+    //console.log("making sure fns")
+    //console.log(language);
 
     if (language == null) {
         window.localStorage.setItem('language', 'cs');
         var language = window.localStorage.getItem('language');
-        alert('making sure, variable was null now is');
-        console.log(language);
+        //console.log('making sure, variable was null now is');
+        //console.log(language);
     }
 }

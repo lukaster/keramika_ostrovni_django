@@ -18,12 +18,12 @@ function set_bg_color() {
 
 function set_lang_en() {
     window.localStorage.setItem('language', 'en');
-    console.log("en clicked")
+    //console.log("en clicked")
 }
 
 function set_lang_cs() {
     window.localStorage.setItem('language', 'cs');
-    console.log("cs clicked")
+   // console.log("cs clicked")
 }
 
 function menu_hover_dropdowns() {
@@ -108,11 +108,11 @@ function menu_hover_dropdowns() {
 function manage_user_dropdown(userName) {
 
     var language = window.localStorage.getItem('language');
-    console.log(language);
+    //console.log(language);
     if (language == null) {
         language = 'cs'
-        alert('variable was null now is');
-        console.log(language);
+        //console.log('variable was null now is');
+        //console.log(language);
     }
     console.log(userName);
     if (userName === "") {
