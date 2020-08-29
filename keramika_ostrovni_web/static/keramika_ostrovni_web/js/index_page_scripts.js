@@ -1,5 +1,7 @@
 function switch_page_language() {
     var language = window.localStorage.getItem('language');
+    console.log("language");
+    console.log(language);
     if (language === 'en') {
         $('.cs-lang').each(function (index, item) {
             var $text = $(item);

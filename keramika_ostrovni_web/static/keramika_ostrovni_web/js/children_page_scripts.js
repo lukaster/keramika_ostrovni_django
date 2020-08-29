@@ -1,5 +1,7 @@
 function add_time_table() {
     var language = window.localStorage.getItem('language');
+    console.log("language");
+    console.log(language);
     var table_filepath = '';
     console.log(language);
     if (language === 'en') {
