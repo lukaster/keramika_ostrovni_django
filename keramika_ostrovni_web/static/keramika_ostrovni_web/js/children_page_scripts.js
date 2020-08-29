@@ -23,7 +23,6 @@ function add_time_table() {
     console.log("table loaded")
 }
 
-u
 
 function switch_page_language() {
     console.log('in children switch');
@@ -64,7 +63,8 @@ function make_sure_lang_is_set() {
     console.log(language);
 
     if (language == null) {
-        language = 'cs';
+        window.localStorage.setItem('language', 'cs');
+        var language = window.localStorage.getItem('language');
         alert('making sure, variable was null now is');
         console.log(language);
     }

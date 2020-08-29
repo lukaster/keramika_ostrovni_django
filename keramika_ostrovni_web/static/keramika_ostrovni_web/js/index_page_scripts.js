@@ -43,7 +43,8 @@ function make_sure_lang_is_set() {
     console.log(language);
 
     if (language == null) {
-        language = 'cs';
+        window.localStorage.setItem('language', 'cs');
+        var language = window.localStorage.getItem('language');
         alert('making sure, variable was null now is');
         console.log(language);
     }
