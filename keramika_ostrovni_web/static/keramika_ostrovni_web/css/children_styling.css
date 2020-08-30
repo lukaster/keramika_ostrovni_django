@@ -139,7 +139,7 @@
     content: "Hodinu vede";
   }
   #time_table .cs td:nth-of-type(5):before {
-    content: "Kapacita";
+    content: "Kapacita kroužku";
   }
 }
 @media (min-width: 590px) {
@@ -217,17 +217,29 @@ body .border-row {
   }
   body .text-div .inside-text-container {
     position: absolute;
-    top: 50%;
-    height: 10em;
-    margin-top: -7em;
-    left: 50%;
-    width: 20em;
-    margin-left: -10em;
+    top: 5%;
+    left: 5vw;
+    width: 80%;
   }
+  body .text-div .middle-row {
+    top: 30% !important;
+  }
+  body .text-div .bottom-row {
+    top: 1% !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1150px) {
+  body .long-text {
+    font-size: 17px;
+  }
+}
+@media (min-width: 768px) {
   body .image-div-1 {
     padding-right: 4vw;
     padding-left: 4vw;
   }
+}
+@media (min-width: 768px) {
   body .image-div-2 {
     padding-right: 7vw;
     padding-left: 1vw;

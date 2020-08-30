@@ -255,7 +255,7 @@ body {
   }
 
   .border-row {
-       padding-top:20px;
+    padding-top: 20px;
     border-bottom-style: solid;
     border-bottom-width: 7px;
     border-bottom-color: $cdarkergrey;
@@ -267,13 +267,29 @@ body {
 
       .inside-text-container {
         position: absolute;
-        top: 50%;
-        height: 10em;
-        margin-top: -7em;
-        left: 50%;
-        width: 20em;
-        margin-left: -10em;
+        top: 5%;
+        // height: 10em;
+        //  margin-top: -7em;
+        left: 5vw;
+        width: 80%;
+        //   margin-left: -10em;
       }
+
+       .middle-row{
+        top: 30%!important;
+      }
+          .bottom-row{
+        top: 1%!important;
+      }
+    }
+
+    //not small enough to go in one column but needs smaller font sizes
+    @media (max-width: 1150px) {
+      .long-text {
+        font-size: 17px;
+      }
+
+
     }
 
 

@@ -72,7 +72,7 @@
             });
         })
         ;
-          make_sure_lang_is_set();
+        make_sure_lang_is_set();
     </script>
 {% endblock %}
 {% block page_content %}
@@ -80,56 +80,56 @@
         <div class="fill-screen col-12"
              style="background-image: url(../../static/keramika_ostrovni_web/images/used_pictures/before_and_after/apo5cropped.jpg)">
             <div id="time_table" class="col-lg-8">
-            <div class="cs-lang">
-                <table class="cs" style="width:100%">
-                    <tr><h3> Rozpis kroužků keramiky 2020/2021</h3></tr>
-                    <thead>
-                    <tr>
-                        <th>Den</th>
-                        <th>Od - do</th>
-                        <th>Žáci</th>
-                        <th>Hodinu vede</th>
-                        <th>Počet míst</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for course in courses %}
+                <div class="cs-lang">
+                    <table class="cs" style="width:100%">
+                        <tr><h3> Rozpis kroužků keramiky 2020/2021</h3></tr>
+                        <thead>
                         <tr>
-                            <td>{{  course.den_cs }}</td>
-                            <td>{{ course.od }} - {{ course.do }}</td>
-                            <td>{{ course.zaci_trida }} třída</td>
-                            <td>{{ course.ucitel }}</td>
-                            <td>{{ course.max_kapacita_krouzku }}</td>
+                            <th>Den</th>
+                            <th>Od - do</th>
+                            <th>Žáci</th>
+                            <th>Hodinu vede</th>
+                            <th>Počet míst</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            <div class="en-lang">
-            <table class="en" style="width:100%">
-                    <tr><h3> Timetable of pottery classes 2020/2021</h3></tr>
-                    <thead>
-                    <tr>
-                        <th>Day</th>
-                        <th>From - to</th>
-                        <th>Students</th>
-                        <th>Teacher</th>
-                        <th>Free spots</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for course in courses %}
+                        </thead>
+                        <tbody>
+                        {% for course in courses %}
+                            <tr>
+                                <td>{{ course.den_cs }}</td>
+                                <td>{{ course.od }} - {{ course.do }}</td>
+                                <td>{{ course.zaci_trida }} třída</td>
+                                <td>{{ course.ucitel }}</td>
+                                <td>{{ course.max_kapacita_krouzku }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="en-lang">
+                    <table class="en" style="width:100%">
+                        <tr><h3> Timetable of pottery classes 2020/2021</h3></tr>
+                        <thead>
                         <tr>
-                            <td>{{ course.den_en }}</td>
-                            <td>{{ course.od }} - {{ course.do }}</td>
-                            <td>{{ course.zaci_trida }} grade</td>
-                            <td>{{ course.ucitel }}</td>
-                            <td>{{ course.max_kapacita_krouzku }}</td>
+                            <th>Day</th>
+                            <th>From - to</th>
+                            <th>Students</th>
+                            <th>Teacher</th>
+                            <th>Free spots</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                        {% for course in courses %}
+                            <tr>
+                                <td>{{ course.den_en }}</td>
+                                <td>{{ course.od }} - {{ course.do }}</td>
+                                <td>{{ course.zaci_trida }} grade</td>
+                                <td>{{ course.ucitel }}</td>
+                                <td>{{ course.max_kapacita_krouzku }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>
@@ -157,111 +157,128 @@
         </div>
     </div>
 
-
     <div class="row content-row">
+
+        <div class="col-md-7 order-md-1 text-div">
+            <div class="inside-text-container">
+                <article class="text_square">
+                    <h2 class="cs-lang"><b>O našich kroužcích</b></h2>
+                    <h2 class="en-lang"><b>About our courses</b></h2>
+                    <h4 class="cs-lang long-text">
+                        Děti se naučí základním znalostem a řemeslným dovednostem při tvarování hlíny a jejím
+                        dekorování.<br>
+                        V hodinách vytvářejí plastiky, nádoby, talíře, figurky zvířat i lidí, kachle,
+                        učí se dekorovat engobami, glazurami, oxidy kovů, za pomoci šablon i skla.<br>
+                        Cílem je rozvíjení jemné motoriky, tvůrčího myšlení, výtvarného prostorového vnímání
+                        s důrazem na originalitu a jedinečnost keramických výrobků.
+                    </h4>
+                    <h4 class="en-lang" style="display: none">text field</h4>
+                </article>
+            </div>
+        </div>
         <div class="col-md-5 order-md-2 image-div image-div-1">
             <img src="../../static/keramika_ostrovni_web/images/used_pictures/kids/two_girls_building_flower_pots_cropped.jpg"
                  style="width: 100%"/>
         </div>
+    </div>
+
+    <div class="row content-row">
+
         <div class="col-md-7 order-md-1 text-div">
             <div class="inside-text-container">
                 <article class="text_square">
-                    <h2 class="cs-lang">Průběh kroužků během školního roku</h2>
-                    <h2 class="en-lang" style="display: none">Classes during school year</h2>
-                    <h4 class="cs-lang">Na hodinách se alternuje mezi modelováním výrobků s keramické hlíny pod vedením
-                        učitelů...</h4>
-                    <h4 class="en-lang" style="display: none">english text</h4>
+                    <h4 class="cs-lang long-text">
+                        V průběhu školního roku děti vytvoří sadu asi patnácti výrobků, které si odnášejí domů.<br>
+                        Jediný svůj výrobek darují do keramického stánku školních vánočních trhů, kdy prodejem výrobků
+                        dětí podpoří i keramická dílna chlapce v Indii, kterého adoptovala na dálku naše ZŠ.<br>
+                        Polovina lekcí je věnována modelování s hlínou na určitý námět, podle fantazie dětí.
+                        V druhé polovině hodin si děti svoje vymodelované výrobky dekorují.
+                    </h4>
+                    <h4 class="en-lang" style="display: none">text field</h4>
                 </article>
             </div>
-
         </div>
-
-    </div>
-    <div class="row content-row">
-        <div class="col-md-5 order-md-2 image-div image-div-2">
+        <div class="col-md-5 order-md-2 image-div image-div-1">
             <img src="../../static/keramika_ostrovni_web/images/used_pictures/kids/kids_painting.JPG"
-                 style="width: 90%"/>
+                 style="width: 100%"/>
         </div>
+    </div>
+    <div class="row border-row"></div>
+
+    <div class="row content-row">
+
         <div class="col-md-7 order-md-1 text-div">
             <div class="inside-text-container">
                 <article class="text_square">
-                    <h2 class="cs-lang"></h2>
-                    <h2 class="en-lang" style="display: none"></h2>
-                    <h4 class="cs-lang">... a malováním na výrobky které měly přes týden čas vyschnout a přejít přepalem
-                        v keramické peci </h4>
-                    <h4 class="en-lang" style="display: none">english text</h4>
+                    <h2 class="cs-lang"><b>Organizační informace</b></h2>
+                    <h2 class="en-lang"><b>Headline</b></h2>
+                    <h4 class="cs-lang long-text">
+                        Keramika probíhá v příjemném inspirativním prostředí školní keramické dílny v přízemí Ostrovní
+                        ulice 16 na Praze 1. <br>
+                        <b>Kurz je 1x v týdnu 90 minut, cena 2000,-Kč. </b><br>
+                        Pro děti z 1. stupně je zajištěn doprovod ze<b> ZŠ ve Vojtěšské</b> do dílny a zpět.<br>
+                        S sebou potřebují jen pracovní zástěru nebo tričko, přezůvky a tašku na přezůvky, ve které si
+                        domů bezpečně odnášejí i svoje výrobky.
+
+                    </h4>
+                    <h4 class="en-lang" style="display: none">text field</h4>
                 </article>
             </div>
-
         </div>
-
+        <div class="col-md-5 order-md-2 image-div image-div-1">
+            <img src="../../static/keramika_ostrovni_web/images/used_pictures/from_street.JPG"
+                 style="width: 100%"/>
+        </div>
     </div>
+
+
     <div class="row content-row">
+
+        <div class="col-md-7 order-md-1 text-div">
+            <div class="middle-row inside-text-container">
+                <article class="text_square">
+                    <h3 class="cs-lang"><b>Co si vzít s sebou?</b></h3>
+                    <h3 class="en-lang"><b>Headline</b></h3>
+                    <h4 class="cs-lang long-text">
+                        S sebou potřebují jen pracovní zástěru nebo tričko, přezůvky a tašku na přezůvky, ve které si
+                        domů bezpečně odnášejí i svoje výrobky.
+                    </h4>
+                    <h4 class="en-lang" style="display: none">text field</h4>
+                </article>
+            </div>
+        </div>
         <div class="col-md-5 order-md-2 image-div image-div-1">
             <img src="../../static/keramika_ostrovni_web/images/used_pictures/kids/full_shelfs_painted.jpg"
                  style="width: 100%"/>
         </div>
+    </div>
+
+
+    <div class="row content-row">
+
         <div class="col-md-7 order-md-1 text-div">
-            <div class="inside-text-container">
+            <div class="bottom-row inside-text-container">
                 <article class="text_square">
-                    <h2 class="cs-lang"></h2>
-                    <h2 class="en-lang" style="display: none"></h2>
-                    <h4 class="cs-lang">Pomalované výrobky projdou ostrým výpalem v peci a poté si je děti mohou odnést
-                        s sebou domů.</h4>
-                    <h4 class="en-lang" style="display: none">english text</h4>
+                    <h3 class="cs-lang"><b>Co je v dílně k dispozici?</b></h3>
+                    <h3 class="en-lang"><b>Headline</b></h3>
+                    <h4 class="cs-lang long-text">
+                        Děti mají k dispozici veškeré pomůcky: špachtle, očka, válečky... <br>
+                        Dílna je samozřejmě vybavena elektrickou pecí a hrnčířským kruhem. Všechny používané materiály -
+                        ker. hmota, glazury, engoby atd. mají certifikát zdravotní nezávadnosti.<br>
+                        Výrobky jako hrníčky, vázy, talíře, misky aj. lze běžně používat.
+
+                    </h4>
+                    <h4 class="en-lang" style="display: none">text field</h4>
                 </article>
             </div>
-
         </div>
-
-    </div>
-    <div class="row border-row"></div>
-    <div class="row content-row">
-        <div class="col-md-5 order-md-2 image-div image-div-2">
-            <img src="../../static/keramika_ostrovni_web/images/used_pictures/kids/equip_kids.png" style="width: 100%"/>
-        </div>
-        <div class="col-md-7 order-md-1 text-div">
-            <div class="inside-text-container">
-                <article class="text_square">
-                    <h2 class="cs-lang">Co s sebou žák potřebuje</h2>
-                    <h2 class="en-lang" style="display: none">What pupil needs to bring</h2>
-                    <ul class="cs-lang" style="font-size: 20px">
-                        <li>Přezůvky</li>
-                        <li>Zástěru</li>
-                        <li>Dobrou náladu a tvořivost :)</li>
-                        <li>...</li>
-                    </ul>
-                    <ul class="en-lang" style="font-size: 20px">
-                        <li>Indoor shoes</li>
-                        <li>Apron</li>
-                        <li>Good mood and creativity :)</li>
-                        <li>...</li>
-                    </ul>
-                </article>
-            </div>
-
-        </div>
-
-    </div>
-    <div class="row content-row">
         <div class="col-md-5 order-md-2 image-div image-div-1">
-            <img src="../../static/keramika_ostrovni_web/images/used_pictures/from_street.JPG" style="width: 100%"/>
+            <img src="../../static/keramika_ostrovni_web/images/pomucky.jpg"
+                 style="width: 100%"/>
         </div>
-        <div class="col-md-7 order-md-1 text-div">
-            <div class="inside-text-container">
-                <article class="text_square">
-                    <h4 class="cs-lang" style="font-size: 20px">Děti jsou vyzvedánány z družiny a dovedeny ze školy do
-                        dílny před začátkem hodiny a zpět po jejím ukončením. Starší děti mohou po domluvě chodit na
-                        kroužek samostatně a samostatně odcházet. Popřípadě si může rodič domluvit osobní vyzvednutí
-                        dítěte v keramické dílně</h4>
-                    <h4 class="en-lang" style="display: none;font-size: 20px">more specific info</h4>
-                </article>
-            </div>
-
-        </div>
-
     </div>
     <div class="row border-row"></div>
+
     <div class="row content-row">
         <div class="col-md-5 order-md-2 image-div image-div-2">
             <img src="../../static/keramika_ostrovni_web/images/used_pictures/girls_working_painting.jpg"
