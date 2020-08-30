@@ -26,7 +26,7 @@ class Krouzek(models.Model):
     zaci_trida = models.CharField(max_length=20, default='1-2')
     ucitel = models.CharField(max_length=30, default='Eva Lukášová')
     max_kapacita_krouzku = models.IntegerField(default=10)
-    cena = models.IntegerField(default=1800)
+    cena = models.IntegerField(default=2000)
 
     start_fronty = models.IntegerField(default=0)
     konec_fronty = models.IntegerField(default=0)
