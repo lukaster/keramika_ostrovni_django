@@ -40,11 +40,11 @@ class LekceDospeli(models.Model):
         ('mon', 'pondělí'), ('tue', 'úterý'), ('wed', 'středa'), ('thu', 'čtvrtek'), ('fri', 'pátek'),
         ('sat', 'sobota'),
         ('sun', 'neděle'))
-    cislo_krouzku = models.IntegerField(default=900)
+    cislo_krouzku = models.IntegerField(default=9000)
     den = models.CharField(max_length=16, choices=DAY_CHOICES, default='thu')
     datum = models.DateField()
-    od = models.CharField(max_length=5, default='00:00')
-    do = models.CharField(max_length=5, default='00:00')
+    od = models.CharField(max_length=5, default='16:00')
+    do = models.CharField(max_length=5, default='19:00')
     ucitel = models.CharField(max_length=30, default='Eva Lukášová')
     max_kapacita_krouzku = models.IntegerField(default=10)
     cena = models.IntegerField(default=100)
