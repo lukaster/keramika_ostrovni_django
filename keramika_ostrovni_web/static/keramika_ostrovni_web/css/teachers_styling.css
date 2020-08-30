@@ -58,6 +58,10 @@
     padding-bottom: 0px !important;
     margin-bottom: 0px !important;
   }
+
+  .inside-text-container {
+    width: 88% !important;
+  }
 }
 
 /*# sourceMappingURL=teachers_styling.css.map */
