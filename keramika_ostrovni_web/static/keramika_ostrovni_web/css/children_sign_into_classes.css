@@ -238,4 +238,8 @@ body .border-row {
   display: none;
 }
 
+#time_table {
+  margin-bottom: 20vh;
+}
+
 /*# sourceMappingURL=children_sign_into_classes.css.map */
