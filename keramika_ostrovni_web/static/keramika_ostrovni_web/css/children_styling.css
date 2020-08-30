@@ -139,7 +139,7 @@
     content: "Hodinu vede";
   }
   #time_table .cs td:nth-of-type(5):before {
-    content: "Volná místa";
+    content: "Kapacita";
   }
 }
 @media (min-width: 590px) {
