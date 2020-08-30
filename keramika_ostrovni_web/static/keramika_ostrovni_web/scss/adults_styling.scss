@@ -242,24 +242,35 @@ body {
    }
 
    @media (min-width: 768px) {
-     .text-div {
-       position: relative !important;
+       .text-div {
+      position: relative !important;
 
-       .inside-text-container {
-         position: absolute;
-         top: 50%;
-         height: 10em;
-         margin-top: -7em;
-         left: 50%;
-         width: 20em;
-         margin-left: -10em;
+      .inside-text-container {
+        position: absolute;
+        top: 5%;
+        // height: 10em;
+        //  margin-top: -7em;
+        left: 5vw;
+        width: 80%;
+        //   margin-left: -10em;
+      }
 
-         article{
-           ul{}
+       .middle-row{
+        top: 30%!important;
+      }
+          .bottom-row{
+        top: 1%!important;
+      }
+    }
 
-         }
-       }
-     }
+    //not small enough to go in one column but needs smaller font sizes
+    @media (max-width: 1150px) {
+      .long-text {
+        font-size: 17px;
+      }
+
+
+    }
 
 
      .image-div-1 {
