@@ -18,7 +18,7 @@ def index(request):
 def children(request):
     context = {
         "username": request.user.username,
-        "aktuality": Aktuality.objects.filter(typ_aktualit='children').all(),
+        "aktuality": Aktuality.objects.filter(typ_aktualit='children').all().order_by("-datum"),
         "courses": Krouzek.objects.all().order_by("cislo_krouzku")
     }
 
@@ -441,7 +441,7 @@ def children_logout(request):
 def adults(request):
     context = {
         "username": request.user.username,
-        "aktuality": Aktuality.objects.filter(typ_aktualit='adults').all(),
+        "aktuality": Aktuality.objects.filter(typ_aktualit='adults').all().all().order_by("-datum"),
         "courses": LekceDospeli.objects.all()
     }
     for course in context.get('courses'):
