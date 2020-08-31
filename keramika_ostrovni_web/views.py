@@ -37,21 +37,23 @@ def children(request):
 
 def provizorni_zapis(request):
     context = {
-       # "username": request.user.username,
-       # "aktuality": Aktuality.objects.filter(typ_aktualit='children').all(),
-       # "courses": Krouzek.objects.all()
+        "courses": Krouzek.objects.all().order_by("cislo_krouzku")
     }
+    poradove_cislo=0
+    links = [
+        "http://www.branajazyku.cz/keramika-1-0",
+        "http://www.branajazyku.cz/keramika-2-0",
+        "http://www.branajazyku.cz/keramika-3-0",
+        "http://www.branajazyku.cz/keramika-4-0",
+        "http://www.branajazyku.cz/keramika-5-0",
+        "http://www.branajazyku.cz/keramika-6-1"]
+    for course in context.get('courses'):
+        course.den_cs, course.den_en = day_to_text_dict(course.den)
+        course.link = links[poradove_cislo]
+        poradove_cislo = poradove_cislo + 1
+        course.poradi=poradove_cislo
 
-    #for course in context.get('courses'):
-    #    course.den_cs, course.den_en = day_to_text_dict(course.den)
-        # print(course.den)
-        # print(course.den_cs)
-        # print(course.den_en)
-        # print("...............")
 
-    # for course in context.get('courses'):
-    #     children = course.zaci_krouzku.all()
-    #     print(children)
 
     return render(request, "keramika_ostrovni_web/provizorni_zapis.html", context)
 
@@ -415,13 +417,13 @@ def sign_up_child(request):
 
     if forma_zapisu==0:
         print("zahajen zapis")
-        zapis_ditete(child, course)
+        #zapis_ditete(child, course)
         print("zapsan")
         print("----")
 
     if forma_zapisu == 1:
         print("zahajen zapis jako nahradnik")
-        zapis_nahradnika(child,course)
+        #zapis_nahradnika(child,course)
         print("zapsan")
         print("----")
     #return render(request, "keramika_ostrovni_web/children_sign_into_classes.html", context)

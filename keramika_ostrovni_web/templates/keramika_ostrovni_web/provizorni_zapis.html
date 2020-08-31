@@ -11,9 +11,9 @@
 
     <div class="row">
 
-        <div class="fill-screen col-12"
-             style="background-color:rgba(83, 127, 166, 0.65);padding-bottom: 50px">
-            <div id="time_table" class="col-lg-11">
+        <div class="col-12"
+             style="background-color:rgba(83, 127, 166, 0.65)">
+            <div id="time_table" class="col-lg-11" style="margin-bottom: 0px!important;margin-top: 30px!important;">
                 <form action="{% url 'sign_up_child' %}" method="post">
                     {% csrf_token %}
                     <div class="cs-lang">
@@ -40,6 +40,92 @@
                                 We kindly ask you to use this link for courses, you already know do not suit your timetable.
                                 </h5>
                             <h5>Thank you</h5>
+                        </article>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+     <div class="row">
+        <div class=" col-12"
+             style="background-color:rgba(83, 127, 166, 0.65);padding-bottom: 30px">
+            <div id="time_table" class="col-lg-8" style="margin-bottom: 0px!important;margin-top: 20px!important;">
+                <div class="cs-lang">
+                    <table class="cs" style="width:100%">
+                        <tr><h3> Rozpis kroužků keramiky 2020/2021 - Vojtěšská</h3></tr>
+                        <thead>
+                        <tr>
+                            <th>Den</th>
+                            <th>Od - do</th>
+                            <th>Žáci</th>
+                            <th>Hodinu vede</th>
+                            <th>Počet míst</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for course in courses %}
+                            <tr>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                   href={{course.link}}>{{ course.poradi }}. {{ course.den_cs }}</a></td>
+                                <td>{{ course.od }} - {{ course.do }}</td>
+                                <td>{{ course.zaci_trida }} třída</td>
+                                <td>{{ course.ucitel }}</td>
+                                <td>{{ course.max_kapacita_krouzku }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="en-lang">
+                    <table class="en" style="width:100%">
+                        <tr><h3> Timetable of pottery classes 2020/2021</h3></tr>
+                        <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>From - to</th>
+                            <th>Students</th>
+                            <th>Teacher</th>
+                            <th>Free spots</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for course in courses %}
+                            <tr>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                   href={{course.link}}>{{ course.poradi }}. {{ course.den_en }}</a></td>
+                                <td>{{ course.od }} - {{ course.do }}</td>
+                                <td>{{ course.zaci_trida }} grade</td>
+                                <td>{{ course.ucitel }}</td>
+                                <td>{{ course.max_kapacita_krouzku }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-12"
+             style="background-color:rgba(83, 127, 166, 0.65)">
+            <div id="time_table" class="col-lg-11" style="margin-top: 0px!important;">
+                <form action="{% url 'sign_up_child' %}" method="post">
+                    {% csrf_token %}
+                    <div class="cs-lang">
+                        <article class="text_square">
+                            <h5>Keramický kroužek <a target="_blank" rel="noopener noreferrer"
+                                   href="http://www.branajazyku.cz/keramika-6-2">6. čtvrtek</a> je určený i pro Uhelný trh</h5>
+                        </article>
+                    </div>
+                    <div class="en-lang">
+                        <article class="text_square">
+                                 <h5>Ceramics course <a target="_blank" rel="noopener noreferrer"
+                                   href="http://www.branajazyku.cz/keramika-6-2">6. thursday</a> is also intended for Uhelný trh</h5>
                         </article>
                     </div>
                 </form>
