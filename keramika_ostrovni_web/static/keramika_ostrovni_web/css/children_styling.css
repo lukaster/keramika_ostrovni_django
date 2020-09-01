@@ -139,7 +139,7 @@
     content: "Hodinu vede";
   }
   #time_table .cs td:nth-of-type(5):before {
-    content: "Kapacita kroužku";
+    content: "Max. kapacita";
   }
 }
 @media (min-width: 590px) {
