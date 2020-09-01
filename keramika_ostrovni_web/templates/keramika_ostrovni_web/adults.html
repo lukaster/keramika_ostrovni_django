@@ -5,8 +5,12 @@
 {% block js %}
     <script src="../../static/keramika_ostrovni_web/js/adult_page_scripts.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+          document.addEventListener('DOMContentLoaded', () => {
+            set_bg_color();
             //add_time_table();
+            $('.adults_menu').css({
+                "color": '#031740'
+            });
         });
         var navbarsize = 'large';
         window.onscroll = () => {

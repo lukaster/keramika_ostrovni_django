@@ -5,7 +5,19 @@
 
 {% block js %}
     <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
+    <script>
 
+        document.addEventListener('DOMContentLoaded', () => {
+            set_bg_color();
+            //add_time_table();
+            $('#children_drop_link_cs').css({
+                "color": '#031740'
+            });
+            $('#children_drop_link_en').css({
+                "color": '#031740'
+            });
+        });
+    </script>
 {% endblock %}
 {% block page_content %}
 
@@ -23,7 +35,8 @@
                                    href="http://www.branajazyku.cz/krouzky">ZŠ Brány jazyků</a>
                             </h2>
                             <h5>V tomto systému vám po zápisu na konkrétní kroužek přijde potvrzující email.</h5>
-                            <h5> V potvrzujícím emailu je link k případnému odhlášení z kroužku. Prosíme rodiče, aby děti
+                            <h5> V potvrzujícím emailu je link k případnému odhlášení z kroužku. Prosíme rodiče, aby
+                                děti
                                 odhlašovali z termínů, o kterých již ví, že se jim nehodí.</h5>
                             <h5>Děkujeme</h5>
                         </article>
@@ -34,11 +47,12 @@
                                 handled through the system of <a target="_blank" rel="noopener noreferrer"
                                                                  href="http://www.branajazyku.cz/krouzky">ZŠ Brána
                                     jazyků</a></h2>
-                                 <h5>In this system, after signing up for a course, you receive a registration email.
-                                    </h5>
+                            <h5>In this system, after signing up for a course, you receive a registration email.
+                            </h5>
                             <h5>The registration email contains a link, that can be used for canceling the registration.
-                                We kindly ask you to use this link for courses, you already know do not suit your timetable.
-                                </h5>
+                                We kindly ask you to use this link for courses, you already know do not suit your
+                                timetable.
+                            </h5>
                             <h5>Thank you</h5>
                         </article>
                     </div>
@@ -48,7 +62,7 @@
         </div>
     </div>
 
-     <div class="row">
+    <div class="row">
         <div class=" col-12"
              style="background-color:rgba(83, 127, 166, 0.65);padding-bottom: 30px">
             <div id="time_table" class="col-lg-8" style="margin-bottom: 0px!important;margin-top: 20px!important;">
@@ -68,7 +82,7 @@
                         {% for course in courses %}
                             <tr>
                                 <td><a target="_blank" rel="noopener noreferrer"
-                                   href={{course.link}}>{{ course.poradi }}. {{ course.den_cs }}</a></td>
+                                       href={{ course.link }}>{{ course.poradi }}. {{ course.den_cs }}</a></td>
                                 <td>{{ course.od }} - {{ course.do }}</td>
                                 <td>{{ course.zaci_trida }} třída</td>
                                 <td>{{ course.ucitel }}</td>
@@ -94,7 +108,7 @@
                         {% for course in courses %}
                             <tr>
                                 <td><a target="_blank" rel="noopener noreferrer"
-                                   href={{course.link}}>{{ course.poradi }}. {{ course.den_en }}</a></td>
+                                       href={{ course.link }}>{{ course.poradi }}. {{ course.den_en }}</a></td>
                                 <td>{{ course.od }} - {{ course.do }}</td>
                                 <td>{{ course.zaci_trida }} grade</td>
                                 <td>{{ course.ucitel }}</td>
@@ -119,13 +133,15 @@
                     <div class="cs-lang">
                         <article class="text_square">
                             <h5>Keramický kroužek <a target="_blank" rel="noopener noreferrer"
-                                   href="http://www.branajazyku.cz/keramika-6-2">6. čtvrtek</a> je určený i pro Uhelný trh</h5>
+                                                     href="http://www.branajazyku.cz/keramika-6-2">6. čtvrtek</a> je
+                                určený i pro Uhelný trh</h5>
                         </article>
                     </div>
                     <div class="en-lang">
                         <article class="text_square">
-                                 <h5>Ceramics course <a target="_blank" rel="noopener noreferrer"
-                                   href="http://www.branajazyku.cz/keramika-6-2">6. thursday</a> is also intended for Uhelný trh</h5>
+                            <h5>Ceramics course <a target="_blank" rel="noopener noreferrer"
+                                                   href="http://www.branajazyku.cz/keramika-6-2">6. thursday</a> is also
+                                intended for Uhelný trh</h5>
                         </article>
                     </div>
                 </form>
