@@ -5,80 +5,11 @@
 {% block js %}
     <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
     <script>
-
-        document.addEventListener('DOMContentLoaded', () => {
-            set_bg_color();
-            //add_time_table();
-            $('#children_drop_link_cs').css({
-                "color": '#031740'
-            });
-             $('#children_drop_link_en').css({
-                "color": '#031740'
-            });
-        });
-        var navbarsize = 'large';
-        window.onscroll = () => {
-            //navbar_resizing_scrolling();
-
-        };
         $(function () {
-            $(window).on("load resize", function () {
-                if (window.innerWidth > 589) {
-
-                    if (window.innerHeight < 500) {
-                        $(".fill-screen").css("height", "500px"); //mobile sideways, table does not overflow background
-                    } else {
-
-                        $(".fill-screen").css("height", window.innerHeight); // big screen, background exactly matches window
-                    }
-                } else {
-                    $(".fill-screen").css("height", "1150px");//mobile view, table longer than one screen height
-                }
-
-                if (window.innerWidth > 751) {
-                    var display_curr = $('#navbar-template-section').css("display")
-                    if (display_curr === "none") {
-                        $('#navbar-template-section').css("display", "flex");
-                        $('#hide-navbar-button').css({
-                            "border-color": "#fcfaf2",
-                            "color": "#fcfaf2",
-                            "padding-bottom": "6px",
-                            "border-width": "0px",
-                            "top": "8px"
-                        });
-                    }
-                }
-            });
-
-
-            $('#hide-navbar-button').click(function () {
-                console.log("button pushed")
-                var display_curr = $('#navbar-template-section').css("display")
-                if (display_curr === "none") {
-                    $('#navbar-template-section').css("display", "flex");
-                    $('#hide-navbar-button').css({
-                        "border-color": "#fcfaf2",
-                        "color": "#fcfaf2",
-                        "padding-bottom": "6px",
-                        "border-width": "0px",
-                        "top": "8px"
-                    });
-                } else {
-                    $('#navbar-template-section').css("display", "none");
-                    $('#hide-navbar-button').css({
-                        "border-color": "#031740",
-                        "color": "#031740",
-                        "padding-bottom": "2px",
-                        "border-width": "1px",
-                        "top": "-0.8em"
-                    });
-                }
-
-
-            });
-        })
-        ;
-        make_sure_lang_is_set();
+            set_menu_color($('.children_menu'));
+            set_main_picture_background_for_screen_size(window);
+            make_sure_lang_is_set();
+        });
     </script>
 {% endblock %}
 {% block page_content %}
@@ -198,7 +129,8 @@
                         Jediný svůj výrobek darují do keramického stánku školních vánočních trhů, kdy prodejem výrobků
                         dětí podpoří i keramická dílna chlapce v Indii, kterého adoptovala na dálku naše ZŠ.<br>
                         Polovina lekcí je věnována modelování s hlínou na určitý námět, podle fantazie dětí.
-                        V druhé polovině hodin si děti svoje vymodelované výrobky dekorují, nebo z hlíny modelují vlastní návrhy.
+                        V druhé polovině hodin si děti svoje vymodelované výrobky dekorují, nebo z hlíny modelují
+                        vlastní návrhy.
                     </h4>
                     <h4 class="en-lang" style="display: none"></h4>
                 </article>

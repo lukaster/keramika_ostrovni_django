@@ -5,77 +5,12 @@
 {% block js %}
     <script src="../../static/keramika_ostrovni_web/js/adult_page_scripts.js"></script>
     <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            set_bg_color();
-            //add_time_table();
-            $('.adults_menu').css({
-                "color": '#031740'
-            });
-        });
-        var navbarsize = 'large';
-        window.onscroll = () => {
-            //navbar_resizing_scrolling();
-
-        };
         $(function () {
-            $(window).on("load resize", function () {
-                if (window.innerWidth > 589) {
-
-                    if (window.innerHeight < 500) {
-                        $(".fill-screen").css("height", "650px"); //mobile sideways, table does not overflow background
-                    } else {
-
-                        $(".fill-screen").css("height", window.innerHeight); // big screen, background exactly matches window
-                    }
-                } else {
-                    $(".fill-screen").css("height", "1550px");//mobile view, table longer than one screen height
-                }
-
-                if (window.innerWidth > 751) {
-                    var display_curr = $('#navbar-template-section').css("display")
-                    if (display_curr === "none") {
-                        $('#navbar-template-section').css("display", "flex");
-                        $('#hide-navbar-button').css({
-                            "border-color": "#fcfaf2",
-                            "color": "#fcfaf2",
-                            "padding-bottom": "6px",
-                            "border-width": "0px",
-                            "top": "8px"
-                        });
-                    }
-                }
-            });
-
-
-            $('#hide-navbar-button').click(function () {
-                console.log("button pushed")
-                var display_curr = $('#navbar-template-section').css("display")
-                if (display_curr === "none") {
-                    $('#navbar-template-section').css("display", "flex");
-                    $('#hide-navbar-button').css({
-                        "border-color": "#fcfaf2",
-                        "color": "#fcfaf2",
-                        "padding-bottom": "6px",
-                        "border-width": "0px",
-                        "top": "8px"
-                    });
-                } else {
-                    $('#navbar-template-section').css("display", "none");
-                    $('#hide-navbar-button').css({
-                        "border-color": "#031740",
-                        "color": "#031740",
-                        "padding-bottom": "2px",
-                        "border-width": "1px",
-                        "top": "-0.8em"
-                    });
-                }
-
-
-            });
-        })
-        ;
+            set_bg_color();
+            set_main_picture_background_for_screen_size(window);
+            set_menu_color($('.adults_menu'));
+        });
     </script>
-
 {% endblock %}
 {% block page_content %}
     <div class="row">
@@ -189,7 +124,8 @@
                     <h3 class="cs-lang"><b></b></h3>
                     <h3 class="en-lang"><b></b></h3>
                     <h4 class="cs-lang long-text"><br><br><br><br>
-                        Lekce pro dospělé jsou tříhodinové v režimu cca 1x za 14 dní, vždy ve čtvrtek od 16 do 19 hod. <br>
+                        Lekce pro dospělé jsou tříhodinové v režimu cca 1x za 14 dní, vždy ve čtvrtek od 16 do 19 hod.
+                        <br>
                         Za pololetí proběhne vždy 10 lekcí. Cena za pololetí pro dospělé je 2500,-Kč.
 
                     </h4>
@@ -207,17 +143,17 @@
 
 
 
-       <div class="row content-row">
+    <div class="row content-row">
 
         <div class="col-md-4 ">
             <img src="../../static/keramika_ostrovni_web/images/used_pictures/adults/mugs_on_shelf.jpg"
                  style="width: 100%"/>
         </div>
-          <div class="col-md-4 ">
+        <div class="col-md-4 ">
             <img src="../../static/keramika_ostrovni_web/images/used_pictures/adults/painting_muf_on_shelf.jpg"
                  style="width: 100%"/>
         </div>
-          <div class="col-md-4 ">
+        <div class="col-md-4 ">
             <img src="../../static/keramika_ostrovni_web/images/used_pictures/before_and_after/jaro%202011%20024.jpg"
                  style="width: 100%"/>
         </div>

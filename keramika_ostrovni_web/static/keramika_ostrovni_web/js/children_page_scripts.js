@@ -1,36 +1,33 @@
-function add_time_table() {
-    var language = window.localStorage.getItem('language');
-    //console.log("language");
-    //console.log(language);
-    if (language == null) {
-        language = 'cs'
-         window.localStorage.setItem('language', 'cs');
-        //console.log('variable was null now is');
-        //console.log(language);
-    }
-    var table_filepath = '';
-    console.log(language);
-    if (language === 'en') {
-        table_filepath = '../templates/time_table_en.html';
-    }
-    if (language === 'cs') {
-        table_filepath = '../templates/time_table_cs.html';
-    }
-    $.get(table_filepath, function (data, status) {
-        var $data = $(data);
+function set_main_picture_background_for_screen_size(window) {
+    $(window).on("load resize", function () {
+        if (window.innerWidth > 589) {
 
-        $('#time_table').html($data.unwrap());
+            if (window.innerHeight < 500) {
+                $(".fill-screen").css("height", "500px"); //mobile sideways, table does not overflow background
+            } else {
+
+                $(".fill-screen").css("height", window.innerHeight); // big screen, background exactly matches window
+            }
+        } else {
+            $(".fill-screen").css("height", "1150px");//mobile view, table longer than one screen height
+        }
+
+        if (window.innerWidth > 751) {
+            var display_curr = $('#navbar-template-section').css("display")
+            if (display_curr === "none") {
+                $('#navbar-template-section').css("display", "flex");
+            }
+        }
     });
-    //console.log("table loaded")
-}
 
+}
 
 function switch_page_language() {
     //console.log('in children switch');
 
     var language = window.localStorage.getItem('language');
     //console.log(language);
-    //add_time_table();
+
     if (language === 'en') {
         $('.cs-lang').each(function (index, item) {
             var $text = $(item);
@@ -58,15 +55,3 @@ function switch_page_language() {
 }
 
 
-function make_sure_lang_is_set() {
-    var language = window.localStorage.getItem('language');
-    //console.log("making sure fns")
-    //console.log(language);
-
-    if (language == null) {
-        window.localStorage.setItem('language', 'cs');
-        var language = window.localStorage.getItem('language');
-        //console.log('making sure, variable was null now is');
-        //console.log(language);
-    }
-}

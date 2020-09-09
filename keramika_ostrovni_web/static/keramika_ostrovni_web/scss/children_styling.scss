@@ -32,35 +32,6 @@ $cdarkergrey: #ddd;
 }
 
 
-#hide-navbar-button {
-  @media(max-width: 750px) {
-    font-size: 40px;
-    color: $clightyellow;
-    background-color: rgba(252, 250, 242, 0.3);
-    display: inline-block;
-    position: fixed;
-    z-index: 9999;
-    padding: 2px 4px;
-    padding-bottom: 8px;
-    border-style: solid;
-    border-width: 0px;
-    border-color: $clightyellow;
-    top: 6px;
-    left: 7px;
-  }
-  @media(min-width: 751px) {
-    display: none;
-  }
-}
-
-@media(max-width: 750px) {
-  #hide-navbar-button:hover {
-    background-color: rgba(252, 250, 242, 0.4);
-    font-weight: bold;
-    border-width: 1px;
-  }
-}
-
 
 #time_table {
   margin-top: 18vh;

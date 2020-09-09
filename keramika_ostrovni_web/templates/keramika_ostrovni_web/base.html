@@ -31,11 +31,6 @@
 <script src="../../static/keramika_ostrovni_web/js/load_main_menu_and_body.js"></script>
 
 <script>
-
-    function handlerIn() {
-
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
         set_bg_color();
         switch_page_language();
@@ -46,10 +41,8 @@
         console.log(userName);
             menu_hover_dropdowns();
             manage_user_dropdown(userName);
-
         }
     );
-
 </script>
 {% block js %}{% endblock %}
 
@@ -69,13 +62,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul id="menu_left" class="navbar-nav mr-auto">
             <li id="children-menu" class="nav-item dropdown">
-                <a id="children_drop_link_cs" class="navbarDropdown cs-lang nav-link" href="#"
+                <a id="children_drop_link_cs" class="children_menu navbarDropdown cs-lang nav-link" href="#"
                    role="button"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     Děti
                 </a>
-                <a id="children_drop_link_en" class="navbarDropdown en-lang nav-link" href="#"
+                <a id="children_drop_link_en" class="children_menu navbarDropdown en-lang nav-link" href="#"
                    role="button"
                    data-toggle="dropdown" style="display: none"
                    aria-haspopup="true" aria-expanded="false">
@@ -108,13 +101,13 @@
                 <a class="teachers_menu en-lang nav-link" href="{% url 'teachers' %}" style="display: none">Teachers</a>
             </li>
             <li id="language_drop-li" class="nav-item dropdown">
-                <a id="language_drop_link_cs" class="navbarDropdown cs-lang nav-link" href="#"
+                <a id="language_drop_link_cs" class="language_menu navbarDropdown cs-lang nav-link" href="#"
                    role="button"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     cs
                 </a>
-                <a id="language_drop_link_en" class="navbarDropdown en-lang nav-link" href="#"
+                <a id="language_drop_link_en" class="language_menu navbarDropdown en-lang nav-link" href="#"
                    role="button"
                    data-toggle="dropdown" style="display: none"
                    aria-haspopup="true" aria-expanded="false">

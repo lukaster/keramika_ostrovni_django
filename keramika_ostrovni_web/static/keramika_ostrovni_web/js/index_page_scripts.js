@@ -37,18 +37,6 @@ function switch_page_language() {
     }
 }
 
-function make_sure_lang_is_set() {
-    var language = window.localStorage.getItem('language');
-    //console.log("making sure fns")
-    //console.log(language);
-
-    if (language == null) {
-        window.localStorage.setItem('language', 'cs');
-        var language = window.localStorage.getItem('language');
-        //console.log('making sure, variable was null now is');
-        //console.log(language);
-    }
-}
 
 function resize_index_page() {
     $fill_screen = $('.fill-screen');

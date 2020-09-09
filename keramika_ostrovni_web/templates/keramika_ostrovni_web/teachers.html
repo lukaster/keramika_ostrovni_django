@@ -4,81 +4,12 @@
     <link rel="stylesheet" href="../../static/keramika_ostrovni_web/css/teachers_styling.css">{% endblock %}
 {% block js %}
 
-    <script src="../../static/keramika_ostrovni_web/js/children_page_scripts.js"></script>
+    <script src="../../static/keramika_ostrovni_web/js/teacher_page_scripts.js"></script>
     <script>
-
         document.addEventListener('DOMContentLoaded', () => {
-            set_bg_color();
-            //add_time_table();
-             $('.teachers_menu').css({
-                "color": '#031740'
-            });
+            set_menu_color($('.teachers_menu'));
         });
-        var navbarsize = 'large';
-        window.onscroll = () => {
-            //navbar_resizing_scrolling();
-
-        };
-        $(function () {
-            $(window).on("load resize", function () {
-                if (window.innerWidth > 589) {
-
-                    if (window.innerHeight < 500) {
-                        $(".fill-screen").css("height", "500px"); //mobile sideways, table does not overflow background
-                    } else {
-
-                        $(".fill-screen").css("height", window.innerHeight); // big screen, background exactly matches window
-                    }
-                } else {
-                    $(".fill-screen").css("height", "1150px");//mobile view, table longer than one screen height
-                }
-
-                if (window.innerWidth > 751) {
-                    var display_curr = $('#navbar-template-section').css("display")
-                    if (display_curr === "none") {
-                        $('#navbar-template-section').css("display", "flex");
-                        $('#hide-navbar-button').css({
-                            "border-color": "#fcfaf2",
-                            "color": "#fcfaf2",
-                            "padding-bottom": "6px",
-                            "border-width": "0px",
-                            "top": "8px"
-                        });
-                    }
-                }
-            });
-
-
-            $('#hide-navbar-button').click(function () {
-                console.log("button pushed")
-                var display_curr = $('#navbar-template-section').css("display")
-                if (display_curr === "none") {
-                    $('#navbar-template-section').css("display", "flex");
-                    $('#hide-navbar-button').css({
-                        "border-color": "#fcfaf2",
-                        "color": "#fcfaf2",
-                        "padding-bottom": "6px",
-                        "border-width": "0px",
-                        "top": "8px"
-                    });
-                } else {
-                    $('#navbar-template-section').css("display", "none");
-                    $('#hide-navbar-button').css({
-                        "border-color": "#031740",
-                        "color": "#031740",
-                        "padding-bottom": "2px",
-                        "border-width": "1px",
-                        "top": "-0.8em"
-                    });
-                }
-
-
-            });
-        })
-        ;
     </script>
-
-
 {% endblock %}
 {% block page_content %}
 

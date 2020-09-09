@@ -15,6 +15,11 @@ function set_bg_color() {
     });
 }
 
+function set_menu_color(menu_item) {
+    menu_item.css({
+        "color": cdarkblue
+    });
+}
 
 function set_lang_en() {
     window.localStorage.setItem('language', 'en');
@@ -26,14 +31,28 @@ function set_lang_cs() {
    // console.log("cs clicked")
 }
 
+
+function make_sure_lang_is_set() {
+    var language = window.localStorage.getItem('language');
+    console.log("making sure fns")
+    console.log(language);
+
+    if (language == null) {
+        window.localStorage.setItem('language', 'cs');
+        var language = window.localStorage.getItem('language');
+        console.log('making sure, variable was null now is');
+        console.log(language);
+    }
+}
+
 function menu_hover_dropdowns() {
     var screen_size = 'small';
     $(window).on("load resize", function () {
         if (window.innerWidth > 767) {
-            $("#children_drop_link_cs").removeClass('dropdown-toggle')
-            $("#children_drop_link_en").removeClass('dropdown-toggle')
-            $("#language_drop_link_cs").removeClass('dropdown-toggle')
-            $("#language_drop_link_en").removeClass('dropdown-toggle')
+            $(".children_menu").removeClass('dropdown-toggle')
+            //$("#children_drop_link_en").removeClass('dropdown-toggle')
+            $(".language_menu").removeClass('dropdown-toggle')
+            //$("#language_drop_link_en").removeClass('dropdown-toggle')
 
             screen_size = 'large';
             var is_children_hovered = false;
@@ -93,10 +112,10 @@ function menu_hover_dropdowns() {
             if (screen_size === 'large') {
                 screen_size = 'small';
                 location.reload();
-                $("#children_drop_link_cs").addClass('dropdown-toggle')
-                $("#children_drop_link_en").addClass('dropdown-toggle')
-                $("#language_drop_link_cs").addClass('dropdown-toggle')
-                $("#language_drop_link_en").addClass('dropdown-toggle')
+                $(".children_menu").addClass('dropdown-toggle');
+                //$("#children_drop_link_en").addClass('dropdown-toggle')
+                $(".language_menu").addClass('dropdown-toggle');
+                //$("#language_drop_link_en").addClass('dropdown-toggle');
 
             }
         }
