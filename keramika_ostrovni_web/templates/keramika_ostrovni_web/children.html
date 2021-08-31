@@ -19,7 +19,7 @@
             <div id="time_table" class="col-lg-8">
                 <div class="cs-lang">
                     <table class="cs" style="width:100%">
-                        <tr><h3> Rozpis kroužků keramiky 2020/2021</h3></tr>
+                        <tr><h3> Rozpis kroužků keramiky 2021/2022</h3></tr>
                         <thead>
                         <tr>
                             <th>Den</th>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="en-lang">
                     <table class="en" style="width:100%">
-                        <tr><h3> Timetable of pottery classes 2020/2021</h3></tr>
+                        <tr><h3> Timetable of pottery classes 2021/2022</h3></tr>
                         <thead>
                         <tr>
                             <th>Day</th>
@@ -80,12 +80,12 @@
                     <div id="news_ul">
                         <ul class="cs-lang">
                             {% for news in aktuality %}
-                                <li>{{ news.text_zpravy_cs }}</li>
+                                <li ><a style="color: {{news.barva_textu}}">{{ news.text_zpravy_cs }}</a></li>
                             {% endfor %}
                         </ul>
                         <ul class="en-lang">
                             {% for news in aktuality %}
-                                <li>{{ news.datum }} {{ news.text_zpravy_en }}</li>
+                                 <li ><a style="color: {{news.barva_textu}}">{{ news.datum }} {{ news.text_zpravy_en }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>

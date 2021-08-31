@@ -8,8 +8,10 @@ from django.contrib.auth.models import User
 
 class Aktuality(models.Model):
     TYPE_CHOICES = (('adults', 'dospeli'), ('children', 'deti'))
+    COLOR_CHOICES = (('black', 'černá'), ('crimson', 'červená'), ('darkblue', 'modrá'))
     text_zpravy_cs = models.CharField(max_length=1000, blank=False)
     text_zpravy_en = models.CharField(max_length=1000, default='Sorry, no translation available yet')
+    barva_textu = models.CharField(max_length=16, choices=COLOR_CHOICES, default='black')
     datum = models.DateField(auto_now=True)
     typ_aktualit = models.CharField(max_length=16, choices=TYPE_CHOICES, default='children')
 
@@ -72,6 +74,7 @@ class Dite(models.Model):
     def __str__(self):
         return f"{self.jmeno} {self.prijmeni}, {self.rocnik}.{self.paralelka}"
 
+
 """
 class FrontaNahradniku(models.Model):
 
@@ -84,6 +87,7 @@ class FrontaNahradniku(models.Model):
     def __str__(self):
         return f"Fronta ke krouzku {self.krouzek}, {self.start_fronty}-{self.konec_fronty}"
 """
+
 
 class Dospely(models.Model):
     username = models.ForeignKey(
