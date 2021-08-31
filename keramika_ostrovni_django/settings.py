@@ -120,7 +120,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-os.path.join(BASE_DIR, 'keramika_ostrovni_web/static'),
-)
-STATIC_ROOT = os.path.join(BASE_DIR, 'keramika_ostrovni_web/static')
