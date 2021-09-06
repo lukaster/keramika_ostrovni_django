@@ -41,12 +41,11 @@ def provizorni_zapis(request):
     }
     poradove_cislo=0
     links = [
-        "http://www.branajazyku.cz/keramika-1-0",
-        "http://www.branajazyku.cz/keramika-2-0",
-        "http://www.branajazyku.cz/keramika-3-0",
-        "http://www.branajazyku.cz/keramika-4-0",
-        "http://www.branajazyku.cz/keramika-5-0",
-        "http://www.branajazyku.cz/keramika-6-1"]
+        "http://www.branajazyku.cz/keramika-1-ostrovni",
+        "http://www.branajazyku.cz/keramika-2-ostrovni",
+        "http://www.branajazyku.cz/keramika-3-ostrovni",
+        "http://www.branajazyku.cz/keramika-4-ostrovni-0",
+        "http://www.branajazyku.cz/keramika-5-ostrovni"]
     for course in context.get('courses'):
         course.den_cs, course.den_en = day_to_text_dict(course.den)
         course.link = links[poradove_cislo]
